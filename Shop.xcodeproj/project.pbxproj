@@ -18,6 +18,10 @@
 		5D0829C32694B695008B2F1D /* MainCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0829C22694B695008B2F1D /* MainCollectionViewManager.swift */; };
 		5D0829C826987A54008B2F1D /* MainMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0829C726987A54008B2F1D /* MainMenuCell.swift */; };
 		5D0829CB26987C28008B2F1D /* MainMenuCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0829CA26987C28008B2F1D /* MainMenuCellModel.swift */; };
+		5D6492072699BB6B000FE666 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6492062699BB6B000FE666 /* CatalogViewController.swift */; };
+		5D6492092699C22F000FE666 /* CatalogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6492082699C22F000FE666 /* CatalogTableViewCell.swift */; };
+		5D64920B2699C458000FE666 /* CatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D64920A2699C458000FE666 /* CatalogModel.swift */; };
+		5D64920D2699D54E000FE666 /* CatalogTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D64920C2699D54E000FE666 /* CatalogTableViewManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		5D0829C22694B695008B2F1D /* MainCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewManager.swift; sourceTree = "<group>"; };
 		5D0829C726987A54008B2F1D /* MainMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCell.swift; sourceTree = "<group>"; };
 		5D0829CA26987C28008B2F1D /* MainMenuCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCellModel.swift; sourceTree = "<group>"; };
+		5D6492062699BB6B000FE666 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
+		5D6492082699C22F000FE666 /* CatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTableViewCell.swift; sourceTree = "<group>"; };
+		5D64920A2699C458000FE666 /* CatalogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogModel.swift; sourceTree = "<group>"; };
+		5D64920C2699D54E000FE666 /* CatalogTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTableViewManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +77,12 @@
 				5D0829AA2694783B008B2F1D /* AppDelegate.swift */,
 				5D0829AC2694783B008B2F1D /* SceneDelegate.swift */,
 				5D0829AE2694783B008B2F1D /* MainViewController.swift */,
-				5D0829C426987864008B2F1D /* MainCollectionView */,
+				5D6492062699BB6B000FE666 /* CatalogViewController.swift */,
+				5D64920C2699D54E000FE666 /* CatalogTableViewManager.swift */,
+				5D64920A2699C458000FE666 /* CatalogModel.swift */,
+				5D6492082699C22F000FE666 /* CatalogTableViewCell.swift */,
 				5D0829B02694783B008B2F1D /* Main.storyboard */,
+				5D0829C426987864008B2F1D /* MainCollectionView */,
 				5D0829B326947843008B2F1D /* Assets.xcassets */,
 				5D0829B526947843008B2F1D /* LaunchScreen.storyboard */,
 				5D0829B826947843008B2F1D /* Info.plist */,
@@ -179,11 +191,15 @@
 				5D0829C32694B695008B2F1D /* MainCollectionViewManager.swift in Sources */,
 				5D0829C826987A54008B2F1D /* MainMenuCell.swift in Sources */,
 				5D0829BF2694AC61008B2F1D /* MainCarouselCell.swift in Sources */,
+				5D64920B2699C458000FE666 /* CatalogModel.swift in Sources */,
 				5D0829AF2694783B008B2F1D /* MainViewController.swift in Sources */,
+				5D64920D2699D54E000FE666 /* CatalogTableViewManager.swift in Sources */,
 				5D0829AB2694783B008B2F1D /* AppDelegate.swift in Sources */,
 				5D0829CB26987C28008B2F1D /* MainMenuCellModel.swift in Sources */,
+				5D6492072699BB6B000FE666 /* CatalogViewController.swift in Sources */,
 				5D0829C12694AFAF008B2F1D /* MainCarouselCellModel.swift in Sources */,
 				5D0829AD2694783B008B2F1D /* SceneDelegate.swift in Sources */,
+				5D6492092699C22F000FE666 /* CatalogTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

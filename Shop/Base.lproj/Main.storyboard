@@ -165,7 +165,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="WnS-5K-Cpy"/>
                     <connections>
-                        <outlet property="carouselCollectionView" destination="rYb-ZU-9WK" id="pvy-yE-Jac"/>
                         <outlet property="carouselPageControl" destination="Vm4-zf-LPM" id="Sts-Un-UFj"/>
                         <outlet property="menuCollectionView" destination="9JN-ym-DaC" id="0DF-ta-N8x"/>
                     </connections>
@@ -212,7 +211,7 @@
         <!--Каталог-->
         <scene sceneID="lNk-G1-4ng">
             <objects>
-                <viewController id="cRN-Od-i10" sceneMemberID="viewController">
+                <viewController id="cRN-Od-i10" customClass="CatalogViewController" customModule="Shop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="51V-ac-pcT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -221,12 +220,25 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="BB9-OV-svg">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="MMH-9r-tGV" imageView="0ND-bv-oaj" style="IBUITableViewCellStyleDefault" id="BB9-OV-svg" customClass="CatalogTableViewCell" customModule="Shop" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BB9-OV-svg" id="ouL-HQ-RhL">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MMH-9r-tGV">
+                                                    <rect key="frame" x="88" y="0.0" width="306" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="menu" id="0ND-bv-oaj">
+                                                    <rect key="frame" x="20" y="0.0" width="53" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -242,6 +254,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Каталог" id="tIY-9c-Gri"/>
+                    <connections>
+                        <outlet property="catalogTableView" destination="JfJ-8V-Hzy" id="aBl-Os-Pg8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEN-9s-RWI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -381,6 +396,7 @@
     <resources>
         <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="menu" width="1000" height="832"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
