@@ -10,7 +10,9 @@ import UIKit
 class CatalogTableViewCell: UITableViewCell {
     
     
-
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

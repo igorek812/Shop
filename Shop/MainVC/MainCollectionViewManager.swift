@@ -34,9 +34,9 @@ final class MainCollectionViewManager: NSObject, UICollectionViewDataSource {
 
 final class MainMenuCollectionViewManager: NSObject, UICollectionViewDataSource {
     
-    private var cellModels: [MainMenuCellModel] = []
+    private var cellModels: [CatalogModel] = []
     
-    func set(cellModels: [MainMenuCellModel]) {
+    func set(cellModels: [CatalogModel]) {
         self.cellModels = cellModels
     }
     

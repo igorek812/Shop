@@ -9,27 +9,29 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var carouselCollectionView: UICollectionView!
     
     @IBOutlet weak var menuCollectionView: UICollectionView!
-    
-    @IBOutlet weak var carouselPageControl: UIPageControl!
     
     let carouselCellModels = [
         MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"), name: "First Photo"),
         MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"), name: "2 Photo"),
         MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"), name: "3 Photo"),
-        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"), name: "4 Photo"),
+        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"), name: "4 Photo")
     ]
     
     let menuCellModels = [
-        MainMenuCellModel.init(image: #imageLiteral(resourceName: "menu"), name: "New"),
-        MainMenuCellModel.init(image: #imageLiteral(resourceName: "menu"), name: "New"),
-        MainMenuCellModel.init(image: #imageLiteral(resourceName: "menu"), name: "New"),
-        MainMenuCellModel.init(image: #imageLiteral(resourceName: "menu"), name: "New"),
-        MainMenuCellModel.init(image: #imageLiteral(resourceName: "menu"), name: "New"),
-        MainMenuCellModel.init(image: #imageLiteral(resourceName: "menu"), name: "New")
+        CatalogModel.init(image: #imageLiteral(resourceName: "menu6"), title: "Новинки"),
+        CatalogModel.init(image: #imageLiteral(resourceName: "menu7"), title: "Одежда для спорта"),
+        CatalogModel.init(image: #imageLiteral(resourceName: "menu8"), title: "Купальники и белье"),
+        CatalogModel.init(image: #imageLiteral(resourceName: "menu1"), title: "Спортивные костюмы"),
+        CatalogModel.init(image: #imageLiteral(resourceName: "menu2"), title: "Брюки, джеггинсы, юбки"),
+        CatalogModel.init(image: #imageLiteral(resourceName: "menu5"), title: "Топы, корсеты"),
+        CatalogModel.init(image: #imageLiteral(resourceName: "menu4"), title: "Фитнес резинки"),
+        CatalogModel.init(image: #imageLiteral(resourceName: "menu3"), title: "Скидки")
+        
     ]
+    
+    var mainHeaderSection: MainCollectionReusableView?
     
     var mainCollectionViewManager: MainCollectionViewManager?
     
@@ -41,15 +43,15 @@ class MainViewController: UIViewController {
         let imageView = UIImageView(image:logo)
         imageView.contentMode = .scaleAspectFit
         self.navigationItem.titleView = imageView
-        carouselCollectionView.delegate = self
+        mainHeaderSection?.carouselCollectionView.delegate = self
         mainCollectionViewManager = MainCollectionViewManager.init()
         
-        carouselCollectionView.dataSource = mainCollectionViewManager
+        mainHeaderSection?.carouselCollectionView.dataSource = mainCollectionViewManager
         
         mainCollectionViewManager?.set(cellModels: carouselCellModels)
-        carouselCollectionView.reloadData()
+        mainHeaderSection?.carouselCollectionView.reloadData()
         
-        carouselPageControl.numberOfPages = carouselCellModels.count
+        mainHeaderSection?.carouselPageControl.numberOfPages = carouselCellModels.count
         
         menuCollectionView.delegate = self
         mainMenuCollectionViewManager = MainMenuCollectionViewManager.init()
@@ -65,7 +67,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == carouselCollectionView {
+        if collectionView == mainHeaderSection?.carouselCollectionView {
             let height: CGFloat = 200
             let width = collectionView.frame.width
             
@@ -73,7 +75,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         }
         else if collectionView == menuCollectionView {
             let height: CGFloat = 200
-            let width = collectionView.frame.width / 2 - 20
+            let width = collectionView.frame.width / 2 - 10
             
             return CGSize(width: width, height: height)
         }
@@ -86,7 +88,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 extension MainViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-        carouselPageControl.currentPage = page
+        mainHeaderSection?.carouselPageControl.currentPage = page
     }
 }
 

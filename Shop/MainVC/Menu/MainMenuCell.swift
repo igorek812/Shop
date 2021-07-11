@@ -12,8 +12,8 @@ class MainMenuCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    func configureCell(cellModel: MainMenuCellModel) {
+    func configureCell(cellModel: CatalogModel) {
         imageView.image = cellModel.image
-        nameLabel.text = cellModel.name
+        nameLabel.text = cellModel.title
     }
 }
