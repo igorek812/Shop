@@ -29,4 +29,12 @@ class CatalogTableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
         return UITableViewCell.init()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let assortmentViewController = storyboard.instantiateViewController(identifier: "AssortmentViewController") as? AssortmentViewController else { return }
+        assortmentViewController.navigationItem.title = "Новинки"
+        
+        show(assortmentViewController, sender: nil)
+    }
+    
 }
