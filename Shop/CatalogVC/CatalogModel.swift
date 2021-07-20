@@ -11,4 +11,16 @@ struct CatalogModel {
     
     let image: UIImage
     let title: String
+    
+}
+
+struct AssortmentSectionModel {
+    let category: AssortmentCategory
+    let items: [CatalogModel]
+}
+
+enum AssortmentCategory {
+    case new
+    case tops
+    //...
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSource {
+class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var assortment: [AssortmentModel] = []
     
@@ -32,5 +32,9 @@ class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSource {
         }
         
         return UICollectionViewCell.init()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
 }

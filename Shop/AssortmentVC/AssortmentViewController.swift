@@ -12,28 +12,28 @@ class AssortmentViewController: UIViewController {
     
     @IBOutlet weak var assortmentCollectionView: UICollectionView!
     
-    let assortmentModel: [AssortmentModel] = [
-        AssortmentModel.init(image: #imageLiteral(resourceName: "shorts"), name: "Моделирующие шорты с боковым карманом (W4/1)", price: "3800P", category: "Велосипедки и шорты"),
-        AssortmentModel.init(image: #imageLiteral(resourceName: "shorts"), name: "Моделирующие шорты с боковым карманом (W4/1)", price: "3800P", category: "Велосипедки и шорты"),
-        AssortmentModel.init(image: #imageLiteral(resourceName: "shorts"), name: "Моделирующие шорты с боковым карманом (W4/1)", price: "3800P", category: "Велосипедки и шорты"),
-        AssortmentModel.init(image: #imageLiteral(resourceName: "shorts"), name: "Моделирующие шорты с боковым карманом (W4/1)", price: "3800P", category: "Велосипедки и шорты"),
-        AssortmentModel.init(image: #imageLiteral(resourceName: "shorts"), name: "Моделирующие шорты с боковым карманом (W4/1)", price: "3800P", category: "Велосипедки и шорты"),
-        AssortmentModel.init(image: #imageLiteral(resourceName: "shorts"), name: "Моделирующие шорты с боковым карманом (W4/1)", price: "3800P", category: "Велосипедки и шорты")
-    ]
+    let assortmentModel: [AssortmentModel] = []
     
     var assortmentManager: AssortmentCollectionViewManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        assortmentCollectionView.delegate = self
         assortmentManager = AssortmentCollectionViewManager.init()
+        assortmentCollectionView.delegate = assortmentManager
         
         assortmentCollectionView.dataSource = assortmentManager
-        assortmentManager?.set(assortment: assortmentModel)
-        
+        print(navigationController?.title ?? "nil")
+        for i in assortmentModel {
+            if i.category == navigationController?.title {
+                assortmentManager?.set(assortment: assortmentModel)
+            
+                assortmentCollectionView.reloadData()
+    
+            }
+        }
         assortmentCollectionView.reloadData()
-        
+        print(navigationController?.title ?? "nil")
     }
     
 }
@@ -41,8 +41,8 @@ class AssortmentViewController: UIViewController {
 extension AssortmentViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let height: CGFloat = 200
-        let width = collectionView.frame.width
+        let height: CGFloat = collectionView.frame.height / 2 - 10
+        let width = collectionView.frame.width / 2 - 10
         
         return CGSize(width: width, height: height)
     }

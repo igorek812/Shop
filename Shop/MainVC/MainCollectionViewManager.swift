@@ -55,6 +55,14 @@ final class MainMenuCollectionViewManager: NSObject, UICollectionViewDataSource 
         return UICollectionViewCell.init()
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+            
+            if let cell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MenuHeader", for: indexPath) as? MainCollectionReusableView {
+                return cell
+            }
+            
+            return UICollectionReusableView()
+    }
     
 }
 

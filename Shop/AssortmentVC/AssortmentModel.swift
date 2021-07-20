@@ -13,3 +13,4 @@ struct AssortmentModel {
     let price: String
     let category: String
 }
+

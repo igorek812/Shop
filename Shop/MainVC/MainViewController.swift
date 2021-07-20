@@ -11,14 +11,7 @@ class MainViewController: UIViewController {
     
     
     @IBOutlet weak var menuCollectionView: UICollectionView!
-    
-    let carouselCellModels = [
-        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"), name: "First Photo"),
-        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"), name: "2 Photo"),
-        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"), name: "3 Photo"),
-        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"), name: "4 Photo")
-    ]
-    
+
     let menuCellModels = [
         CatalogModel.init(image: #imageLiteral(resourceName: "menu6"), title: "Новинки"),
         CatalogModel.init(image: #imageLiteral(resourceName: "menu7"), title: "Одежда для спорта"),
@@ -33,8 +26,6 @@ class MainViewController: UIViewController {
     
     var mainHeaderSection: MainCollectionReusableView?
     
-    var mainCollectionViewManager: MainCollectionViewManager?
-    
     var mainMenuCollectionViewManager: MainMenuCollectionViewManager?
     
     override func viewDidLoad() {
@@ -43,15 +34,7 @@ class MainViewController: UIViewController {
         let imageView = UIImageView(image:logo)
         imageView.contentMode = .scaleAspectFit
         self.navigationItem.titleView = imageView
-        mainHeaderSection?.carouselCollectionView.delegate = self
-        mainCollectionViewManager = MainCollectionViewManager.init()
-        
-        mainHeaderSection?.carouselCollectionView.dataSource = mainCollectionViewManager
-        
-        mainCollectionViewManager?.set(cellModels: carouselCellModels)
-        mainHeaderSection?.carouselCollectionView.reloadData()
-        
-        mainHeaderSection?.carouselPageControl.numberOfPages = carouselCellModels.count
+
         
         menuCollectionView.delegate = self
         mainMenuCollectionViewManager = MainMenuCollectionViewManager.init()
@@ -60,6 +43,11 @@ class MainViewController: UIViewController {
         
         mainMenuCollectionViewManager?.set(cellModels: menuCellModels)
         menuCollectionView.reloadData()
+        
+        mainHeaderSection?.carouselInit()
+        
+     //   print(mainHeaderSection?.carouselCellModels.count)
+        
     }
 
 

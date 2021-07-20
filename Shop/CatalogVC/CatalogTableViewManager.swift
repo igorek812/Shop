@@ -11,6 +11,8 @@ class CatalogTableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
     
     var cellModels: [CatalogModel] = []
     
+    var didSelect: ((Int) -> Void)?
+    
     func set(cellModels: [CatalogModel]) {
         self.cellModels = cellModels
     }
@@ -30,11 +32,7 @@ class CatalogTableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let assortmentViewController = storyboard.instantiateViewController(identifier: "AssortmentViewController") as? AssortmentViewController else { return }
-        assortmentViewController.navigationItem.title = "Новинки"
-        
-        show(assortmentViewController, sender: nil)
+        didSelect?(indexPath.row)
     }
     
 }
