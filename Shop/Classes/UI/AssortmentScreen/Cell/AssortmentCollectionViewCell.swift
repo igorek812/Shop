@@ -16,7 +16,7 @@ class AssortmentCollectionViewCell: UICollectionViewCell {
     
     func configureCell(assortmentCell: AssortmentModel) {
         itemImage.image = assortmentCell.image
-        categoryLabel.text = assortmentCell.category
+        categoryLabel.text = assortmentCell.category.rawValue
         nameLabel.text = assortmentCell.name
         priceLabel.text = assortmentCell.price
     }

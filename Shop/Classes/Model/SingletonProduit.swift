@@ -7,20 +7,19 @@
 
 import UIKit
 
-class SingletonProduit {
+class BacketData {
     
-    static let shared = SingletonProduit()
+    static let shared = BacketData()
+    private init() {}
     
     var produit: [ProduitModel] = []
     
     func addProduitInBag(id: Int) {}
     
     func removeProduitInBag(id: Int) {}
-    
-    private init() {}
 }
 
-extension SingletonProduit: NSCopying {
+extension BacketData: NSCopying {
 
     func copy(with zone: NSZone? = nil) -> Any {
         return self

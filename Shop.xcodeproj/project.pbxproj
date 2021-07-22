@@ -30,6 +30,7 @@
 		5D64921B26A3335E000FE666 /* ProduitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D64921A26A3335D000FE666 /* ProduitViewController.swift */; };
 		5D64921D26A34923000FE666 /* ProduitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D64921C26A34923000FE666 /* ProduitModel.swift */; };
 		5D64921F26A44AD4000FE666 /* SingletonProduit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D64921E26A44AD4000FE666 /* SingletonProduit.swift */; };
+		78BFA90026A9F4E7009DA56A /* AssortimentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BFA8FF26A9F4E7009DA56A /* AssortimentService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		5D64921A26A3335D000FE666 /* ProduitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProduitViewController.swift; sourceTree = "<group>"; };
 		5D64921C26A34923000FE666 /* ProduitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProduitModel.swift; sourceTree = "<group>"; };
 		5D64921E26A44AD4000FE666 /* SingletonProduit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonProduit.swift; sourceTree = "<group>"; };
+		78BFA8FF26A9F4E7009DA56A /* AssortimentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssortimentService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,40 +92,29 @@
 		5D0829A92694783B008B2F1D /* Shop */ = {
 			isa = PBXGroup;
 			children = (
-				5D0829AA2694783B008B2F1D /* AppDelegate.swift */,
-				5D0829AC2694783B008B2F1D /* SceneDelegate.swift */,
-				5D0829B02694783B008B2F1D /* Main.storyboard */,
-				5D64922026A468A6000FE666 /* ProduitVC */,
-				5D64921E26A44AD4000FE666 /* SingletonProduit.swift */,
-				5D649219269F2337000FE666 /* AssortmentVC */,
-				5D649210269B0E07000FE666 /* CatalogVC */,
-				5D0829C426987864008B2F1D /* MainVC */,
-				5D0829B326947843008B2F1D /* Assets.xcassets */,
-				5D0829B526947843008B2F1D /* LaunchScreen.storyboard */,
-				5D0829B826947843008B2F1D /* Info.plist */,
+				78BFA8DA26A9F076009DA56A /* Classes */,
+				78BFA8DB26A9F09A009DA56A /* Resources */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
 		};
-		5D0829C426987864008B2F1D /* MainVC */ = {
+		5D0829C426987864008B2F1D /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				5D0829AE2694783B008B2F1D /* MainViewController.swift */,
-				5D0829C22694B695008B2F1D /* MainCollectionViewManager.swift */,
-				5D64920E269AF786000FE666 /* MainCollectionReusableView.swift */,
-				5D0829C926987A74008B2F1D /* Carousel */,
-				5D0829CC26987FD2008B2F1D /* Menu */,
+				78BFA8E026A9F134009DA56A /* View */,
+				78BFA8E126A9F142009DA56A /* Manager */,
+				5D0829C926987A74008B2F1D /* Cell */,
 			);
-			path = MainVC;
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		5D0829C926987A74008B2F1D /* Carousel */ = {
+		5D0829C926987A74008B2F1D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				5D0829BE2694AC61008B2F1D /* MainCarouselCell.swift */,
-				5D0829C02694AFAF008B2F1D /* MainCarouselCellModel.swift */,
+				78BFA8E326A9F162009DA56A /* Carousel */,
+				5D0829CC26987FD2008B2F1D /* Menu */,
 			);
-			path = Carousel;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		5D0829CC26987FD2008B2F1D /* Menu */ = {
@@ -135,35 +126,215 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
-		5D649210269B0E07000FE666 /* CatalogVC */ = {
+		5D649210269B0E07000FE666 /* CatalogScreen */ = {
 			isa = PBXGroup;
 			children = (
-				5D6492062699BB6B000FE666 /* CatalogViewController.swift */,
-				5D64920C2699D54E000FE666 /* CatalogTableViewManager.swift */,
-				5D64920A2699C458000FE666 /* CatalogModel.swift */,
-				5D6492082699C22F000FE666 /* CatalogTableViewCell.swift */,
+				78BFA8F426A9F232009DA56A /* View */,
+				78BFA8F526A9F237009DA56A /* Manager */,
+				78BFA8F726A9F240009DA56A /* Model */,
+				78BFA8F826A9F247009DA56A /* Cell */,
 			);
-			path = CatalogVC;
+			path = CatalogScreen;
 			sourceTree = "<group>";
 		};
-		5D649219269F2337000FE666 /* AssortmentVC */ = {
+		5D649219269F2337000FE666 /* AssortmentScreen */ = {
 			isa = PBXGroup;
 			children = (
-				5D649211269B5140000FE666 /* AssortmentViewController.swift */,
-				5D649213269B516F000FE666 /* AssortmentCollectionViewCell.swift */,
-				5D649215269B5184000FE666 /* AssortmentModel.swift */,
-				5D649217269B51B1000FE666 /* AssortmentCollectionViewManager.swift */,
+				78BFA8ED26A9F202009DA56A /* View */,
+				78BFA8EF26A9F208009DA56A /* Cell */,
+				78BFA8F126A9F219009DA56A /* Model */,
+				78BFA8EB26A9F1FB009DA56A /* Manager */,
 			);
-			path = AssortmentVC;
+			path = AssortmentScreen;
 			sourceTree = "<group>";
 		};
-		5D64922026A468A6000FE666 /* ProduitVC */ = {
+		5D64922026A468A6000FE666 /* ProductScreen */ = {
+			isa = PBXGroup;
+			children = (
+				78BFA8E726A9F1E0009DA56A /* View */,
+				78BFA8E926A9F1E6009DA56A /* Model */,
+			);
+			path = ProductScreen;
+			sourceTree = "<group>";
+		};
+		78BFA8DA26A9F076009DA56A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				78BFA8FD26A9F4C6009DA56A /* Network */,
+				78BFA8DC26A9F0BE009DA56A /* AppDelegate */,
+				78BFA8E526A9F19B009DA56A /* Model */,
+				78BFA8DD26A9F0DD009DA56A /* UI */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		78BFA8DB26A9F09A009DA56A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5D0829B326947843008B2F1D /* Assets.xcassets */,
+				5D0829B526947843008B2F1D /* LaunchScreen.storyboard */,
+				5D0829B826947843008B2F1D /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		78BFA8DC26A9F0BE009DA56A /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				5D0829AA2694783B008B2F1D /* AppDelegate.swift */,
+				5D0829AC2694783B008B2F1D /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		78BFA8DD26A9F0DD009DA56A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				78BFA8E626A9F1CC009DA56A /* MainStoryBoard */,
+				5D0829C426987864008B2F1D /* MainScreen */,
+				5D649210269B0E07000FE666 /* CatalogScreen */,
+				5D64922026A468A6000FE666 /* ProductScreen */,
+				5D649219269F2337000FE666 /* AssortmentScreen */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		78BFA8E026A9F134009DA56A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5D0829AE2694783B008B2F1D /* MainViewController.swift */,
+				5D64920E269AF786000FE666 /* MainCollectionReusableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		78BFA8E126A9F142009DA56A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5D0829C22694B695008B2F1D /* MainCollectionViewManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		78BFA8E326A9F162009DA56A /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				5D0829BE2694AC61008B2F1D /* MainCarouselCell.swift */,
+				5D0829C02694AFAF008B2F1D /* MainCarouselCellModel.swift */,
+			);
+			path = Carousel;
+			sourceTree = "<group>";
+		};
+		78BFA8E526A9F19B009DA56A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D64921E26A44AD4000FE666 /* SingletonProduit.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		78BFA8E626A9F1CC009DA56A /* MainStoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				5D0829B02694783B008B2F1D /* Main.storyboard */,
+			);
+			path = MainStoryBoard;
+			sourceTree = "<group>";
+		};
+		78BFA8E726A9F1E0009DA56A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5D64921A26A3335D000FE666 /* ProduitViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		78BFA8E926A9F1E6009DA56A /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				5D64921C26A34923000FE666 /* ProduitModel.swift */,
-				5D64921A26A3335D000FE666 /* ProduitViewController.swift */,
 			);
-			path = ProduitVC;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		78BFA8EB26A9F1FB009DA56A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5D649217269B51B1000FE666 /* AssortmentCollectionViewManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		78BFA8ED26A9F202009DA56A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5D649211269B5140000FE666 /* AssortmentViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		78BFA8EF26A9F208009DA56A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5D649213269B516F000FE666 /* AssortmentCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		78BFA8F126A9F219009DA56A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D649215269B5184000FE666 /* AssortmentModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		78BFA8F426A9F232009DA56A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5D6492062699BB6B000FE666 /* CatalogViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		78BFA8F526A9F237009DA56A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5D64920C2699D54E000FE666 /* CatalogTableViewManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		78BFA8F726A9F240009DA56A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D64920A2699C458000FE666 /* CatalogModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		78BFA8F826A9F247009DA56A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5D6492082699C22F000FE666 /* CatalogTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		78BFA8FD26A9F4C6009DA56A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				78BFA8FE26A9F4CF009DA56A /* AssortimentService */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		78BFA8FE26A9F4CF009DA56A /* AssortimentService */ = {
+			isa = PBXGroup;
+			children = (
+				78BFA8FF26A9F4E7009DA56A /* AssortimentService.swift */,
+			);
+			path = AssortimentService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +417,7 @@
 				5D64921F26A44AD4000FE666 /* SingletonProduit.swift in Sources */,
 				5D64920D2699D54E000FE666 /* CatalogTableViewManager.swift in Sources */,
 				5D0829AB2694783B008B2F1D /* AppDelegate.swift in Sources */,
+				78BFA90026A9F4E7009DA56A /* AssortimentService.swift in Sources */,
 				5D0829CB26987C28008B2F1D /* MainMenuCellModel.swift in Sources */,
 				5D64921B26A3335E000FE666 /* ProduitViewController.swift in Sources */,
 				5D649212269B5140000FE666 /* AssortmentViewController.swift in Sources */,
@@ -404,7 +576,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 54X8EEJG4R;
-				INFOPLIST_FILE = Shop/Info.plist;
+				INFOPLIST_FILE = Shop/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,7 +596,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 54X8EEJG4R;
-				INFOPLIST_FILE = Shop/Info.plist;
+				INFOPLIST_FILE = Shop/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

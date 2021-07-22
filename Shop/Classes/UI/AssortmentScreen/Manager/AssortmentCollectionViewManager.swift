@@ -23,11 +23,12 @@ class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSource, UIC
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AssortmentCell", for: indexPath) as? AssortmentCollectionViewCell {
             
-            cell.categoryLabel.text = assortment[indexPath.row].category
-            cell.nameLabel.text = assortment[indexPath.row].name
-            cell.priceLabel.text = assortment[indexPath.row].price
-            cell.itemImage.image = assortment[indexPath.row].image
+//            cell.categoryLabel.text = assortment[indexPath.row].category.rawValue
+//            cell.nameLabel.text = assortment[indexPath.row].name
+//            cell.priceLabel.text = assortment[indexPath.row].price
+//            cell.itemImage.image = assortment[indexPath.row].image
             
+            cell.configureCell(assortmentCell: assortment[indexPath.row])
             return cell
         }
         
