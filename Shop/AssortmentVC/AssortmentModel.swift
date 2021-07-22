@@ -11,6 +11,6 @@ struct AssortmentModel {
     let image: UIImage
     let name: String
     let price: String
-    let category: String
+    let category: AssortmentCategory
 }
 

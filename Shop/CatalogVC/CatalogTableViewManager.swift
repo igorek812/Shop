@@ -13,8 +13,10 @@ class CatalogTableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
     
     var didSelect: ((Int) -> Void)?
     
-    func set(cellModels: [CatalogModel]) {
-        self.cellModels = cellModels
+    func set(cellModels: [AssortmentSectionModel]) {
+        for item in cellModels {
+            self.cellModels = self.cellModels + item.items
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

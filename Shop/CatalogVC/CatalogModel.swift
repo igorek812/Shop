@@ -8,10 +8,8 @@
 import UIKit
 
 struct CatalogModel {
-    
     let image: UIImage
     let title: String
-    
 }
 
 struct AssortmentSectionModel {
@@ -21,6 +19,11 @@ struct AssortmentSectionModel {
 
 enum AssortmentCategory {
     case new
+    case sport
+    case swimsuit
+    case tracksuits
+    case pants
     case tops
-    //...
+    case fitnessRubberBands
+    case sales
 }

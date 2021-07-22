@@ -12,28 +12,26 @@ class AssortmentViewController: UIViewController {
     
     @IBOutlet weak var assortmentCollectionView: UICollectionView!
     
-    let assortmentModel: [AssortmentModel] = []
-    
+    let assortmentCategory: [AssortmentModel] = [
+        AssortmentModel.init(image: #imageLiteral(resourceName: "menu4"), name: "Жопа", price: "3500", category: .new),
+        AssortmentModel.init(image: #imageLiteral(resourceName: "menu4"), name: "Жопа2", price: "3500", category: .new),
+        AssortmentModel.init(image: #imageLiteral(resourceName: "menu4"), name: "Жопа3", price: "3500", category: .pants),
+        AssortmentModel.init(image: #imageLiteral(resourceName: "menu4"), name: "Жопа4", price: "3500", category: .sales),
+        AssortmentModel.init(image: #imageLiteral(resourceName: "menu4"), name: "Жопа5", price: "3500", category: .tops)
+    ]
     var assortmentManager: AssortmentCollectionViewManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(assortmentCategory)
+        navigationController?.title = assortmentCategory
         assortmentManager = AssortmentCollectionViewManager.init()
         assortmentCollectionView.delegate = assortmentManager
         
         assortmentCollectionView.dataSource = assortmentManager
-        print(navigationController?.title ?? "nil")
-        for i in assortmentModel {
-            if i.category == navigationController?.title {
-                assortmentManager?.set(assortment: assortmentModel)
-            
-                assortmentCollectionView.reloadData()
+        //assortmentManager?.set(assortment: assortmentCategory)
     
-            }
-        }
         assortmentCollectionView.reloadData()
-        print(navigationController?.title ?? "nil")
     }
     
 }
