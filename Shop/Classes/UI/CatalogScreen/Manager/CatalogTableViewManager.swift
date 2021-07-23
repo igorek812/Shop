@@ -9,14 +9,12 @@ import UIKit
 
 class CatalogTableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    var cellModels: [CatalogModel] = []
+    var cellModels: [CatalogViewModel] = []
     
-    var didSelect: ((Int) -> Void)?
+    var didSelect: ((AssortmentCategory) -> Void)?
     
-    func set(cellModels: [AssortmentSectionModel]) {
-        for item in cellModels {
-            self.cellModels = self.cellModels + item.items
-        }
+    func set(cellModels: [CatalogViewModel]) {
+        self.cellModels = cellModels
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,15 +24,15 @@ class CatalogTableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CatalogTableViewCell {
             
-            cell.nameLabel.text = cellModels[indexPath.row].title
-            cell.backgroundImageView.image = cellModels[indexPath.row].image
+            cell.nameLabel.text = cellModels[indexPath.row].item.title
+            cell.backgroundImageView.image = cellModels[indexPath.row].item.image
             return cell
         }
         return UITableViewCell.init()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        didSelect?(indexPath.row)
+        didSelect?(cellModels[indexPath.row].category)
     }
     
 }

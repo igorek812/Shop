@@ -58,6 +58,7 @@ final class MainMenuCollectionViewManager: NSObject, UICollectionViewDataSource 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
             
             if let cell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MenuHeader", for: indexPath) as? MainCollectionReusableView {
+                cell.carouselInit()
                 return cell
             }
             
