@@ -27,6 +27,14 @@ class CatalogViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
+    }
+
+}
+
+private extension CatalogViewController {
+    
+    private func setupTableView() {
         catalogTableViewManager = CatalogTableViewManager.init()
         catalogTableView.delegate = catalogTableViewManager
         
@@ -42,8 +50,6 @@ class CatalogViewController: UIViewController {
             assortmentViewController.category = category
             self.show(assortmentViewController, sender: nil)
         }
-
     }
-
 }
 

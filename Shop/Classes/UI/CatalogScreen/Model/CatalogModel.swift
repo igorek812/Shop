@@ -13,14 +13,14 @@ struct CatalogModel {
 }
 
 enum AssortmentCategory: String {
-    case new = "new"
-    case sport = "sport"
-    case swimsuit = "swimsuit"
-    case tracksuits = "tracksuits"
-    case pants = "pants"
-    case tops = "tops"
-    case fitnessRubberBands = "fitnessRubberBands"
-    case sales = "sales"
+    case new = "Новинки"
+    case sport = "Одежда для спорта"
+    case swimsuit = "Купальники и белье"
+    case tracksuits = "Спортивные костюмы"
+    case pants = "Брюки, джеггинсы, юбки"
+    case tops = "Топы, корсеты"
+    case fitnessRubberBands = "Фитнес резинки"
+    case sales = "Скидки"
 }
 
 struct CatalogViewModel {

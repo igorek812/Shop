@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
+class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var assortment: [AssortmentModel] = []
     
@@ -23,11 +23,6 @@ class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSource, UIC
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AssortmentCell", for: indexPath) as? AssortmentCollectionViewCell {
             
-//            cell.categoryLabel.text = assortment[indexPath.row].category.rawValue
-//            cell.nameLabel.text = assortment[indexPath.row].name
-//            cell.priceLabel.text = assortment[indexPath.row].price
-//            cell.itemImage.image = assortment[indexPath.row].image
-            
             cell.configureCell(assortmentCell: assortment[indexPath.row])
             return cell
         }
@@ -37,5 +32,13 @@ class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let height: CGFloat = collectionView.frame.height / 2 - 10
+        let width = collectionView.frame.width / 2 - 10
+        
+        return CGSize(width: width, height: height)
     }
 }

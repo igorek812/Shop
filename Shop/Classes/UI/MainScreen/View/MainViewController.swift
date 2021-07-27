@@ -13,15 +13,14 @@ class MainViewController: UIViewController {
     @IBOutlet weak var menuCollectionView: UICollectionView!
 
     let menuCellModels = [
-        CatalogModel.init(image: #imageLiteral(resourceName: "menu6"), title: "Новинки"),
-        CatalogModel.init(image: #imageLiteral(resourceName: "menu7"), title: "Одежда для спорта"),
-        CatalogModel.init(image: #imageLiteral(resourceName: "menu8"), title: "Купальники и белье"),
-        CatalogModel.init(image: #imageLiteral(resourceName: "menu1"), title: "Спортивные костюмы"),
-        CatalogModel.init(image: #imageLiteral(resourceName: "menu2"), title: "Брюки, джеггинсы, юбки"),
-        CatalogModel.init(image: #imageLiteral(resourceName: "menu5"), title: "Топы, корсеты"),
-        CatalogModel.init(image: #imageLiteral(resourceName: "menu4"), title: "Фитнес резинки"),
-        CatalogModel.init(image: #imageLiteral(resourceName: "menu3"), title: "Скидки")
-        
+        CatalogViewModel.init(category: .new, item: CatalogModel.init(image: #imageLiteral(resourceName: "menu6"), title: "Новинки")),
+        CatalogViewModel.init(category: .sport, item: CatalogModel.init(image: #imageLiteral(resourceName: "menu7"), title: "Одежда для спорта")),
+        CatalogViewModel.init(category: .swimsuit, item: CatalogModel.init(image: #imageLiteral(resourceName: "menu8"), title: "Купальники и белье")),
+        CatalogViewModel.init(category: .tracksuits, item: CatalogModel.init(image: #imageLiteral(resourceName: "menu1"), title: "Спортивные костюмы")),
+        CatalogViewModel.init(category: .pants, item: CatalogModel.init(image: #imageLiteral(resourceName: "menu2"), title: "Брюки, джеггинсы, юбки")),
+        CatalogViewModel.init(category: .tops, item: CatalogModel.init(image: #imageLiteral(resourceName: "menu5"), title: "Топы, корсеты")),
+        CatalogViewModel.init(category: .fitnessRubberBands, item: CatalogModel.init(image: #imageLiteral(resourceName: "menu4"), title: "Фитнес резинки")),
+        CatalogViewModel.init(category: .sales, item: CatalogModel.init(image: #imageLiteral(resourceName: "menu3"), title: "Новинки"))
     ]
     
     var mainHeaderSection: MainCollectionReusableView?
@@ -35,9 +34,16 @@ class MainViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         self.navigationItem.titleView = imageView
 
-        
-        menuCollectionView.delegate = self
+        setCollectionView()
+    }
+
+}
+
+private extension MainViewController {
+    
+    private func setCollectionView() {
         mainMenuCollectionViewManager = MainMenuCollectionViewManager.init()
+        menuCollectionView.delegate = mainMenuCollectionViewManager
         
         menuCollectionView.dataSource = mainMenuCollectionViewManager
         
@@ -46,38 +52,14 @@ class MainViewController: UIViewController {
         
         mainHeaderSection?.carouselInit()
         
-     //   print(mainHeaderSection?.carouselCellModels.count)
-        
-    }
-
-
-}
-
-extension MainViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == mainHeaderSection?.carouselCollectionView {
-            let height: CGFloat = 200
-            let width = collectionView.frame.width
-            
-            return CGSize(width: width, height: height)
+        mainMenuCollectionViewManager?.didSelect = { category in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let assortmentViewController = storyboard.instantiateViewController(identifier: "AssortmentViewController") as? AssortmentViewController else { return }
+            assortmentViewController.category = category
+            self.show(assortmentViewController, sender: nil)
         }
-        else if collectionView == menuCollectionView {
-            let height: CGFloat = 200
-            let width = collectionView.frame.width / 2 - 10
-            
-            return CGSize(width: width, height: height)
-        }
-        
-        return CGSize()
     }
-        
-}
-
-extension MainViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let page = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-        mainHeaderSection?.carouselPageControl.currentPage = page
-    }
+    
 }
 
 

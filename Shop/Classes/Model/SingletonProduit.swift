@@ -12,11 +12,32 @@ class BacketData {
     static let shared = BacketData()
     private init() {}
     
-    var produit: [ProduitModel] = []
+    var favouriteProducts: [AssortmentModel] = []
+    var productInBag: [AssortmentModel] = []
     
-    func addProduitInBag(id: Int) {}
+    func addProductInFavourite(product: AssortmentModel) {
+        self.favouriteProducts.append(product)
+    }
     
-    func removeProduitInBag(id: Int) {}
+    func removeProductInFavourite(product: AssortmentModel) {
+        for (i, value) in self.favouriteProducts.enumerated() {
+            if value.name == product.name {
+                self.favouriteProducts.remove(at: i)
+            }
+        }
+    }
+    
+    func addProductToBag(product: AssortmentModel) {
+        self.productInBag.append(product)
+    }
+    
+    func removeProductInBag(product: AssortmentModel) {
+        for (i, value) in self.productInBag.enumerated() {
+            if value.name == product.name {
+                self.productInBag.remove(at: i)
+            }
+        }
+    }
 }
 
 extension BacketData: NSCopying {

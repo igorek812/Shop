@@ -29,7 +29,7 @@ class AssortmentViewController: UIViewController {
 private extension AssortmentViewController {
     
     func setupNavBar() {
-        navigationController?.title = category?.rawValue
+        navigationItem.title = category?.rawValue
     }
     
     func setupTableView() {
@@ -43,16 +43,6 @@ private extension AssortmentViewController {
         assortmentCollectionView.dataSource = assortmentManager
         
         assortmentManager?.set(assortment: assortmentCategory)
-        //assortmentCollectionView.reloadData()
-    }
-}
-
-extension AssortmentViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let height: CGFloat = collectionView.frame.height / 2 - 10
-        let width = collectionView.frame.width / 2 - 10
-        
-        return CGSize(width: width, height: height)
+        assortmentCollectionView.reloadData()
     }
 }
