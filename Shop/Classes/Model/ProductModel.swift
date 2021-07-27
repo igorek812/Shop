@@ -7,11 +7,11 @@
 
 import UIKit
 
-struct AssortmentModel {
-    let image: UIImage
+struct ProductModel {
+    let image: [ProductImageModel]
     let name: String
     let price: String
-    var article: String?
+    var article: String
     let category: AssortmentCategory
 }
 

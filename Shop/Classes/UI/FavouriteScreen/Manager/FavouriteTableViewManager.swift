@@ -9,9 +9,9 @@ import UIKit
 
 class FavouriteTableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    private var favouriteProduits: [AssortmentModel] = []
+    private var favouriteProduits: [ProductModel] = []
     
-    func set(favouriteProduits: [AssortmentModel]) {
+    func set(favouriteProduits: [ProductModel]) {
         self.favouriteProduits = favouriteProduits
     }
     
@@ -25,7 +25,7 @@ class FavouriteTableViewManager: NSObject, UITableViewDataSource, UITableViewDel
             
             cell.nameLabel.text = favouriteProduits[indexPath.row].name
             cell.priceLabel.text = favouriteProduits[indexPath.row].price
-            cell.productImage.image = favouriteProduits[indexPath.row].image
+            cell.productImage.image = favouriteProduits[indexPath.row].image[0].image
             cell.addToBagButton = favouriteProduits[indexPath.row]
             return cell
         }

@@ -15,7 +15,7 @@ class FavouriteTableViewCell: UITableViewCell {
     @IBOutlet weak var bagButton: UIButton!
     @IBOutlet weak var productImage: UIImageView!
     
-    var addToBagButton: AssortmentModel?
+    var addToBagButton: ProductModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()

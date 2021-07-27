@@ -12,14 +12,14 @@ class BacketData {
     static let shared = BacketData()
     private init() {}
     
-    var favouriteProducts: [AssortmentModel] = []
-    var productInBag: [AssortmentModel] = []
+    var favouriteProducts: [ProductModel] = []
+    var productInBag: [ProductModel] = []
     
-    func addProductInFavourite(product: AssortmentModel) {
+    func addProductInFavourite(product: ProductModel) {
         self.favouriteProducts.append(product)
     }
     
-    func removeProductInFavourite(product: AssortmentModel) {
+    func removeProductInFavourite(product: ProductModel) {
         for (i, value) in self.favouriteProducts.enumerated() {
             if value.name == product.name {
                 self.favouriteProducts.remove(at: i)
@@ -27,11 +27,11 @@ class BacketData {
         }
     }
     
-    func addProductToBag(product: AssortmentModel) {
+    func addProductToBag(product: ProductModel) {
         self.productInBag.append(product)
     }
     
-    func removeProductInBag(product: AssortmentModel) {
+    func removeProductInBag(product: ProductModel) {
         for (i, value) in self.productInBag.enumerated() {
             if value.name == product.name {
                 self.productInBag.remove(at: i)

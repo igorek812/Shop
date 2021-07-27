@@ -9,11 +9,13 @@ import UIKit
 
 class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var assortment: [AssortmentModel] = []
+    var assortment: [ProductModel] = []
     
-    func set(assortment: [AssortmentModel]) {
+    func set(assortment: [ProductModel]) {
         self.assortment = assortment
     }
+    
+    var didSelect: ((ProductModel) -> Void)?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return assortment.count
@@ -31,7 +33,7 @@ class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        didSelect?(assortment[indexPath.row])
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

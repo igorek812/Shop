@@ -13,13 +13,7 @@ class ProduitViewController: UIViewController {
     
     var productCollectionViewManager: ProductCollectionViewManager?
     
-    var product = AssortmentModel.init(image: #imageLiteral(resourceName: "shorts"), name: "Моделирующие шорты с боковым карманом (W4/1)", price: "3800P", article: "Артикул: W4/1-08163-40-(XS)", category: .pants)
-    
-    var imageProduct: [ProductImageModel] = [
-        ProductImageModel.init(image:  #imageLiteral(resourceName: "menu7") ),
-        ProductImageModel.init(image: #imageLiteral(resourceName: "menu1")),
-        ProductImageModel.init(image: #imageLiteral(resourceName: "menu3"))
-    ]
+    var product = ProductModel.init(image: [ProductImageModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"))], name: "RTR", price: "34400", article: "fgdfg", category: .new)
     
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -30,7 +24,6 @@ class ProduitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setup()
     }
     
@@ -55,10 +48,10 @@ class ProduitViewController: UIViewController {
         productCollectionViewManager = ProductCollectionViewManager.init()
         productCollectionView.delegate = productCollectionViewManager
         productCollectionView.dataSource = productCollectionViewManager
-        productCollectionViewManager?.set(imageProduct: imageProduct)
+        productCollectionViewManager?.set(imageProduct: [product.image[0]])
         productCollectionView.reloadData()
         
-        //produitImageView.image = product.image
+        
         categoryLabel.text = product.category.rawValue
         nameLabel.text = product.name
         priceLabel.text = product.price

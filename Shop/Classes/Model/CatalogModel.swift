@@ -26,4 +26,5 @@ enum AssortmentCategory: String {
 struct CatalogViewModel {
     let category: AssortmentCategory
     let item: CatalogModel
+    var product: ProductModel?
 }

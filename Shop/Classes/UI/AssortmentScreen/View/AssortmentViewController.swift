@@ -8,18 +8,18 @@
 import UIKit
 
 class AssortmentViewController: UIViewController {
-
     
     @IBOutlet weak var assortmentCollectionView: UICollectionView!
     
     public var category: AssortmentCategory?
     
-    private var assortmentCategory: [AssortmentModel] = []
+    private var assortmentCategory: [ProductModel] = []
     private let assortimentService = AssortimentService()
     private var assortmentManager: AssortmentCollectionViewManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupNavBar()
         setupTableView()
     }
@@ -44,5 +44,12 @@ private extension AssortmentViewController {
         
         assortmentManager?.set(assortment: assortmentCategory)
         assortmentCollectionView.reloadData()
+        
+        assortmentManager?.didSelect = { cell in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let produitViewController = storyboard.instantiateViewController(identifier: "ProductVC") as? ProduitViewController else { return }
+            produitViewController.product = cell
+            self.show(produitViewController, sender: nil)
+        }
     }
 }

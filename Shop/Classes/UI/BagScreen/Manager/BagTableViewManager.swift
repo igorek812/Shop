@@ -9,9 +9,9 @@ import UIKit
 
 class BagTableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    var productInBag: [AssortmentModel] = []
+    var productInBag: [ProductModel] = []
     
-    func set(productInBag: [AssortmentModel]) {
+    func set(productInBag: [ProductModel]) {
         self.productInBag = productInBag
     }
     
@@ -24,7 +24,7 @@ class BagTableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate 
             
             cell.nameLabel.text = productInBag[indexPath.row].name
             cell.priceLabel.text = productInBag[indexPath.row].price
-            cell.productImage.image = productInBag[indexPath.row].image
+            cell.productImage.image = productInBag[indexPath.row].image[0].image
             
             return cell
         }
