@@ -36,7 +36,7 @@ class MainCollectionReusableView: UICollectionReusableView, UICollectionViewDele
 
 extension MainCollectionReusableView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height: CGFloat = 200
+        let height: CGFloat = collectionView.frame.height
         let width = collectionView.frame.width
         
         return CGSize(width: width, height: height)
