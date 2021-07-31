@@ -11,6 +11,8 @@ class ProductCollectionViewManager: NSObject, UICollectionViewDataSource, UIColl
     
     var imageProduct: [ProductImageModel] = []
     
+    var didSelect: ((ProductImageModel) -> Void)?
+    
     func set(imageProduct: [ProductImageModel]) {
         self.imageProduct = imageProduct
     }
@@ -35,6 +37,10 @@ class ProductCollectionViewManager: NSObject, UICollectionViewDataSource, UIColl
         let width = collectionView.frame.width 
         
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didSelect?(imageProduct[indexPath.row])
     }
     
     

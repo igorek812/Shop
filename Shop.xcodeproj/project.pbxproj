@@ -37,6 +37,11 @@
 		5D93FCCD26B02E4500BFFAE9 /* BagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93FCCC26B02E4500BFFAE9 /* BagTableViewCell.swift */; };
 		5D93FCCF26B03A9700BFFAE9 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93FCCE26B03A9700BFFAE9 /* ProductCollectionViewCell.swift */; };
 		5D93FCD226B03ABB00BFFAE9 /* ProductCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93FCD126B03ABB00BFFAE9 /* ProductCollectionViewManager.swift */; };
+		5D93FCD826B1832100BFFAE9 /* ProductImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93FCD726B1832100BFFAE9 /* ProductImageViewController.swift */; };
+		5D93FCDA26B1925100BFFAE9 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93FCD926B1925100BFFAE9 /* ColorCollectionViewCell.swift */; };
+		5D93FCDC26B1925D00BFFAE9 /* SizeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93FCDB26B1925D00BFFAE9 /* SizeCollectionViewCell.swift */; };
+		5D93FCDE26B1930600BFFAE9 /* ColorCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93FCDD26B1930600BFFAE9 /* ColorCollectionViewManager.swift */; };
+		5D93FCE026B1931700BFFAE9 /* SizeCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93FCDF26B1931700BFFAE9 /* SizeCollectionViewManager.swift */; };
 		5DE080A926AACDB6007F54D3 /* MainMenuCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE080A826AACDB6007F54D3 /* MainMenuCollectionViewManager.swift */; };
 		78BFA90026A9F4E7009DA56A /* AssortimentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BFA8FF26A9F4E7009DA56A /* AssortimentService.swift */; };
 /* End PBXBuildFile section */
@@ -74,6 +79,11 @@
 		5D93FCCC26B02E4500BFFAE9 /* BagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagTableViewCell.swift; sourceTree = "<group>"; };
 		5D93FCCE26B03A9700BFFAE9 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductCollectionViewCell.swift; path = Shop/Classes/UI/ProductScreen/Cell/ProductCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		5D93FCD126B03ABB00BFFAE9 /* ProductCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewManager.swift; sourceTree = "<group>"; };
+		5D93FCD726B1832100BFFAE9 /* ProductImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductImageViewController.swift; path = Shop/Classes/UI/MainStoryBoard/ProductImageViewController.swift; sourceTree = SOURCE_ROOT; };
+		5D93FCD926B1925100BFFAE9 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		5D93FCDB26B1925D00BFFAE9 /* SizeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCollectionViewCell.swift; sourceTree = "<group>"; };
+		5D93FCDD26B1930600BFFAE9 /* ColorCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewManager.swift; sourceTree = "<group>"; };
+		5D93FCDF26B1931700BFFAE9 /* SizeCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCollectionViewManager.swift; sourceTree = "<group>"; };
 		5DE080A826AACDB6007F54D3 /* MainMenuCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCollectionViewManager.swift; sourceTree = "<group>"; };
 		78BFA8FF26A9F4E7009DA56A /* AssortimentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssortimentService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -244,6 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				5D93FCCE26B03A9700BFFAE9 /* ProductCollectionViewCell.swift */,
+				5D93FCD926B1925100BFFAE9 /* ColorCollectionViewCell.swift */,
+				5D93FCDB26B1925D00BFFAE9 /* SizeCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -252,6 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				5D93FCD126B03ABB00BFFAE9 /* ProductCollectionViewManager.swift */,
+				5D93FCDD26B1930600BFFAE9 /* ColorCollectionViewManager.swift */,
+				5D93FCDF26B1931700BFFAE9 /* SizeCollectionViewManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -348,6 +362,7 @@
 		78BFA8E726A9F1E0009DA56A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5D93FCD726B1832100BFFAE9 /* ProductImageViewController.swift */,
 				5D64921A26A3335D000FE666 /* ProduitViewController.swift */,
 			);
 			path = View;
@@ -492,11 +507,13 @@
 				5D93FCCF26B03A9700BFFAE9 /* ProductCollectionViewCell.swift in Sources */,
 				5D93FCBD26AD8C9300BFFAE9 /* FavouriteViewController.swift in Sources */,
 				5D0829C826987A54008B2F1D /* MainMenuCell.swift in Sources */,
+				5D93FCDA26B1925100BFFAE9 /* ColorCollectionViewCell.swift in Sources */,
 				5D0829BF2694AC61008B2F1D /* MainCarouselCell.swift in Sources */,
 				5D649218269B51B1000FE666 /* AssortmentCollectionViewManager.swift in Sources */,
 				5D64920B2699C458000FE666 /* CatalogModel.swift in Sources */,
 				5D0829AF2694783B008B2F1D /* MainViewController.swift in Sources */,
 				5D64921F26A44AD4000FE666 /* SingletonProduit.swift in Sources */,
+				5D93FCD826B1832100BFFAE9 /* ProductImageViewController.swift in Sources */,
 				5D93FCD226B03ABB00BFFAE9 /* ProductCollectionViewManager.swift in Sources */,
 				5D64920D2699D54E000FE666 /* CatalogTableViewManager.swift in Sources */,
 				5D0829AB2694783B008B2F1D /* AppDelegate.swift in Sources */,
@@ -504,12 +521,15 @@
 				5D93FCCA26B02E2500BFFAE9 /* BagTableViewManager.swift in Sources */,
 				5D0829CB26987C28008B2F1D /* MainMenuCellModel.swift in Sources */,
 				5D64921B26A3335E000FE666 /* ProduitViewController.swift in Sources */,
+				5D93FCE026B1931700BFFAE9 /* SizeCollectionViewManager.swift in Sources */,
 				5D93FCC026AD8D6A00BFFAE9 /* FavouriteTableViewCell.swift in Sources */,
 				5D649212269B5140000FE666 /* AssortmentViewController.swift in Sources */,
 				5D6492072699BB6B000FE666 /* CatalogViewController.swift in Sources */,
 				5D0829C12694AFAF008B2F1D /* MainCarouselCellModel.swift in Sources */,
 				5D649214269B516F000FE666 /* AssortmentCollectionViewCell.swift in Sources */,
 				5DE080A926AACDB6007F54D3 /* MainMenuCollectionViewManager.swift in Sources */,
+				5D93FCDC26B1925D00BFFAE9 /* SizeCollectionViewCell.swift in Sources */,
+				5D93FCDE26B1930600BFFAE9 /* ColorCollectionViewManager.swift in Sources */,
 				5D0829AD2694783B008B2F1D /* SceneDelegate.swift in Sources */,
 				5D93FCC326AD8D9400BFFAE9 /* FavouriteTableViewManager.swift in Sources */,
 				5D93FCCD26B02E4500BFFAE9 /* BagTableViewCell.swift in Sources */,
