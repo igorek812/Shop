@@ -13,6 +13,12 @@ class CatalogTableViewCell: UITableViewCell {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    func configureCell(cellModel: CatalogViewModel) {
+        
+        nameLabel.text = cellModel.item.title
+        backgroundImageView.image = cellModel.item.image
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

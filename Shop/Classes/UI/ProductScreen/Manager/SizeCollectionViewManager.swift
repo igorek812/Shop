@@ -22,9 +22,7 @@ class SizeCollectionViewManager: NSObject, UICollectionViewDataSource, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCell", for: indexPath) as? SizeCollectionViewCell {
             
-            cell.sizeLabel.text = sizeProduct[indexPath.row].size
-            cell.backgroundColor = UIColor.lightGray
-            cell.sizeLabel.textColor = UIColor.white
+            cell.configureCell(cellModel: sizeProduct[indexPath.row])
             
             return cell
         }

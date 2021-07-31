@@ -13,17 +13,17 @@ class MainCollectionReusableView: UICollectionReusableView, UICollectionViewDele
     @IBOutlet weak var carouselPageControl: UIPageControl!
     
     let carouselCellModels = [
-        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"), name: "First Photo"),
-        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"), name: "2 Photo"),
-        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"), name: "3 Photo"),
-        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"), name: "4 Photo")
+        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1")),
+        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1")),
+        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1")),
+        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"))
     ]
 
     var mainCarouselCollectionViewManager: MainCarouselCollectionViewManager?
     
     func carouselInit() {
-        carouselCollectionView.delegate = self
         mainCarouselCollectionViewManager = MainCarouselCollectionViewManager.init()
+        carouselCollectionView.delegate = mainCarouselCollectionViewManager
         
         carouselCollectionView.dataSource = mainCarouselCollectionViewManager
         
@@ -34,18 +34,10 @@ class MainCollectionReusableView: UICollectionReusableView, UICollectionViewDele
     }
 }
 
-extension MainCollectionReusableView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height: CGFloat = collectionView.frame.height
-        let width = collectionView.frame.width
-        
-        return CGSize(width: width, height: height)
-    }
-}
-
 extension MainCollectionReusableView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
         carouselPageControl.currentPage = page
     }
 }
+

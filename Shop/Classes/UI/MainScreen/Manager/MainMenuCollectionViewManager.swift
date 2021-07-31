@@ -48,10 +48,20 @@ final class MainMenuCollectionViewManager: NSObject, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let height: CGFloat = 200
-        let width = collectionView.frame.width / 2 - 10
+        let height: CGFloat = collectionView.frame.width / 2 - 15
+        let width = collectionView.frame.width / 2 - 15
         
         return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        let height: CGFloat = collectionView.frame.width / 2 - 15
+        let width = collectionView.frame.width / 2 - 15
+        
+        return CGSize(width: width, height: height)
+    }
+    
+    
     
 }

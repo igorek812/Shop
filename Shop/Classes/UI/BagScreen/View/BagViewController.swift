@@ -34,6 +34,8 @@ class BagViewController: UIViewController {
     }
     
     func setupTableView() {
+        
+        bagTableView.separatorStyle = .none
         bagTableViewManager = BagTableViewManager.init()
         bagTableView.delegate = bagTableViewManager
         bagTableView.dataSource = bagTableViewManager

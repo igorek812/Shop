@@ -11,6 +11,8 @@ class FavouriteTableViewManager: NSObject, UITableViewDataSource, UITableViewDel
     
     private var favouriteProduits: [ProductModel] = []
     
+    var didSelect: ((ProductModel) -> Void)?
+    
     func set(favouriteProduits: [ProductModel]) {
         self.favouriteProduits = favouriteProduits
     }
@@ -23,14 +25,16 @@ class FavouriteTableViewManager: NSObject, UITableViewDataSource, UITableViewDel
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FavouriteCell", for: indexPath) as? FavouriteTableViewCell {
             
-            cell.nameLabel.text = favouriteProduits[indexPath.row].name
-            cell.priceLabel.text = favouriteProduits[indexPath.row].price
-            cell.productImage.image = favouriteProduits[indexPath.row].image[0].image
-            cell.addToBagButton = favouriteProduits[indexPath.row]
+            cell.configureCell(cellModel: favouriteProduits[indexPath.row])
+            
             return cell
         }
         
         return UITableViewCell.init()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didSelect?(favouriteProduits[indexPath.row])
     }
     
     

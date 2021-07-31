@@ -22,9 +22,8 @@ class ColorCollectionViewManager: NSObject, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath) as? ColorCollectionViewCell {
             
-            cell.backgroundColor = color[indexPath.row].color
+            cell.configureCell(cellModel: color[indexPath.row])
             
-            cell.layer.cornerRadius = cell.frame.height / 2
             return cell
         }
         

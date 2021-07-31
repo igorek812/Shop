@@ -9,4 +9,10 @@ import UIKit
 
 class ColorCollectionViewCell: UICollectionViewCell {
     
+    func configureCell(cellModel: ColorModel) {
+        
+        backgroundColor = cellModel.color
+        
+        layer.cornerRadius = frame.height / 2
+    }
 }

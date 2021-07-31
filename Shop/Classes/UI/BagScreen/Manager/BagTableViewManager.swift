@@ -22,9 +22,7 @@ class BagTableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BagCell", for: indexPath) as? BagTableViewCell {
             
-            cell.nameLabel.text = productInBag[indexPath.row].name
-            cell.priceLabel.text = productInBag[indexPath.row].price
-            cell.productImage.image = productInBag[indexPath.row].image[0].image
+            cell.configureCell(cellModel: productInBag[indexPath.row])
             
             return cell
         }

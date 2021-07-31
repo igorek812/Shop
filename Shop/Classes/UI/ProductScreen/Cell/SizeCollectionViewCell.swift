@@ -10,4 +10,10 @@ import UIKit
 class SizeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var sizeLabel: UILabel!
+    
+    func configureCell(cellModel: SizeModel) {
+        sizeLabel.text = cellModel.size
+        backgroundColor = UIColor.lightGray
+        sizeLabel.textColor = UIColor.white
+    }
 }

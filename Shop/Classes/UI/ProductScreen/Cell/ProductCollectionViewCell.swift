@@ -11,4 +11,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var productImageView: UIImageView!
     
+    func configureCell(cellModel: ProductImageModel) {
+        productImageView.image = cellModel.image
+    }
+    
 }

@@ -25,7 +25,8 @@ class ProductCollectionViewManager: NSObject, UICollectionViewDataSource, UIColl
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCollectionViewCell {
             
-            cell.productImageView.image = imageProduct[indexPath.row].image
+            cell.configureCell(cellModel: imageProduct[indexPath.row])
+            
             return cell
         }
         

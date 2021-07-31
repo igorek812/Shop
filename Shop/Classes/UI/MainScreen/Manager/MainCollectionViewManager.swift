@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainCarouselCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
+final class MainCarouselCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     private var cellModels: [MainCarouselCellModel] = []
     
@@ -27,6 +27,14 @@ final class MainCarouselCollectionViewManager: NSObject, UICollectionViewDataSou
         }
         
         return UICollectionViewCell.init()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let height: CGFloat = collectionView.frame.height
+        let width = collectionView.frame.width
+        
+        return CGSize(width: width, height: height)
     }
     
 }

@@ -9,5 +9,4 @@ import UIKit
 
 struct MainCarouselCellModel {
     let image: UIImage
-    let name: String
 }

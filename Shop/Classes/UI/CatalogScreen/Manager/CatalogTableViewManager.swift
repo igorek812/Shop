@@ -24,8 +24,8 @@ class CatalogTableViewManager: NSObject, UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CatalogTableViewCell {
             
-            cell.nameLabel.text = cellModels[indexPath.row].item.title
-            cell.backgroundImageView.image = cellModels[indexPath.row].item.image
+            cell.configureCell(cellModel: cellModels[indexPath.row])
+            
             return cell
         }
         return UITableViewCell.init()

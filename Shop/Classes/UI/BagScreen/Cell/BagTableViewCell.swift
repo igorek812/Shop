@@ -14,6 +14,14 @@ class BagTableViewCell: UITableViewCell {
     @IBOutlet weak var colorLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
+    func configureCell(cellModel: ProductModel) {
+        productImage.image = cellModel.image[0].image
+        nameLabel.text = cellModel.name
+        colorLabel.backgroundColor = cellModel.color[0].color
+        colorLabel.text = ""
+        priceLabel.text = cellModel.price
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

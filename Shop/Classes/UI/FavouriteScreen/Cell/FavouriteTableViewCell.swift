@@ -17,6 +17,13 @@ class FavouriteTableViewCell: UITableViewCell {
     
     var addToBagButton: ProductModel?
     
+    func configureCell(cellModel: ProductModel) {
+        nameLabel.text = cellModel.name
+        priceLabel.text = cellModel.price
+        productImage.image = cellModel.image[0].image
+        addToBagButton = cellModel
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
