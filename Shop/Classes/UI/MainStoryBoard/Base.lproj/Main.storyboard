@@ -552,14 +552,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lpd-Be-UF5">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="lpd-Be-UF5">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-40-fn3">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-40-fn3">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="896" id="bzI-z4-ogE"/>
+                                            <constraint firstAttribute="width" constant="414" id="ejD-EL-CjQ"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="yG6-40-fn3" firstAttribute="leading" secondItem="lpd-Be-UF5" secondAttribute="leading" id="7yc-3G-4Ca"/>
+                                    <constraint firstAttribute="bottom" secondItem="yG6-40-fn3" secondAttribute="bottom" id="eSh-6Y-LUA"/>
+                                    <constraint firstItem="yG6-40-fn3" firstAttribute="top" secondItem="lpd-Be-UF5" secondAttribute="top" id="gGs-vL-QEa"/>
+                                    <constraint firstAttribute="trailing" secondItem="yG6-40-fn3" secondAttribute="trailing" id="zcD-1V-vqr"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XEh-z2-xhA"/>
