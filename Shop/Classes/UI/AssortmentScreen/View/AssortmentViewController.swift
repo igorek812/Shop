@@ -28,11 +28,11 @@ class AssortmentViewController: UIViewController {
 
 private extension AssortmentViewController {
     
-    func setupNavBar() {
+    private func setupNavBar() {
         navigationItem.title = category?.rawValue
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         
         if let category = category {
             assortmentCategory = assortimentService.getItemsBy(category: category)

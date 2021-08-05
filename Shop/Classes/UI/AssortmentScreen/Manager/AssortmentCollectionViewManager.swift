@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+final class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var assortment: [ProductModel] = []
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SizeCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+final class SizeCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var sizeProduct: [SizeModel] = []
     

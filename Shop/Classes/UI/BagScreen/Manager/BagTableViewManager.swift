@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BagTableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate {
+final class BagTableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var productInBag: [ProductModel] = []
     

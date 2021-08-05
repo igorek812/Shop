@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
 
 private extension MainViewController {
     
-    private func setCollectionView() {
+    func setCollectionView() {
         mainMenuCollectionViewManager = MainMenuCollectionViewManager.init()
         menuCollectionView.delegate = mainMenuCollectionViewManager
         

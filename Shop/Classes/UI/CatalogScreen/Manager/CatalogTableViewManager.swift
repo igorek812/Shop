@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CatalogTableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate {
+final class CatalogTableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var cellModels: [CatalogViewModel] = []
     

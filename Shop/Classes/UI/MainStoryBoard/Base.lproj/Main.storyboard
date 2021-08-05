@@ -25,13 +25,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="3BE-Eb-5Zv">
                                     <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="50" height="190"/>
+                                    <size key="headerReferenceSize" width="50" height="150"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainMenuCollectionCell" id="7AB-Ju-1fb" customClass="MainMenuCell" customModule="Shop" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="195" width="128" height="128"/>
+                                        <rect key="frame" x="10" y="155" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6t1-Nx-9pF">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -74,11 +74,11 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="MenuHeader" id="kEj-iH-6MB" customClass="MainCollectionReusableView" customModule="Shop" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rYb-ZU-9WK">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="alR-zU-RLe">
                                                 <size key="itemSize" width="128" height="128"/>
@@ -88,13 +88,13 @@
                                             </collectionViewFlowLayout>
                                             <cells>
                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="MainCarouselCell" id="jGU-jO-cOF" customClass="MainCarouselCell" customModule="Shop" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="31" width="128" height="128"/>
+                                                    <rect key="frame" x="0.0" y="11" width="128" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="udA-ML-VLy">
                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QqD-U9-YI6">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QqD-U9-YI6">
                                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                             </imageView>
                                                         </subviews>
@@ -112,7 +112,7 @@
                                             </cells>
                                         </collectionView>
                                         <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Vm4-zf-LPM">
-                                            <rect key="frame" x="108" y="154.5" width="198" height="27.5"/>
+                                            <rect key="frame" x="108" y="114.5" width="198" height="27.5"/>
                                             <color key="pageIndicatorTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="currentPageIndicatorTintColor" systemColor="systemGrayColor"/>
                                         </pageControl>
@@ -547,7 +547,7 @@
         <!--Product Image View Controller-->
         <scene sceneID="vMg-T8-Tun">
             <objects>
-                <viewController storyboardIdentifier="ProductImageView" id="xXf-Vf-df8" customClass="ProductImageViewController" customModule="Shop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductImageView" wantsFullScreenLayout="YES" hidesBottomBarWhenPushed="YES" id="xXf-Vf-df8" customClass="ProductImageViewController" customModule="Shop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hVH-EI-zea">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -555,32 +555,35 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="lpd-Be-UF5">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-40-fn3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="896" id="bzI-z4-ogE"/>
-                                            <constraint firstAttribute="width" constant="414" id="ejD-EL-CjQ"/>
-                                        </constraints>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-40-fn3">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="yG6-40-fn3" firstAttribute="leading" secondItem="lpd-Be-UF5" secondAttribute="leading" id="7yc-3G-4Ca"/>
-                                    <constraint firstAttribute="bottom" secondItem="yG6-40-fn3" secondAttribute="bottom" id="eSh-6Y-LUA"/>
-                                    <constraint firstItem="yG6-40-fn3" firstAttribute="top" secondItem="lpd-Be-UF5" secondAttribute="top" id="gGs-vL-QEa"/>
-                                    <constraint firstAttribute="trailing" secondItem="yG6-40-fn3" secondAttribute="trailing" id="zcD-1V-vqr"/>
+                                    <constraint firstAttribute="trailing" secondItem="yG6-40-fn3" secondAttribute="trailing" id="3RL-OS-Unj"/>
+                                    <constraint firstAttribute="bottom" secondItem="yG6-40-fn3" secondAttribute="bottom" id="86U-0f-AJl"/>
+                                    <constraint firstItem="yG6-40-fn3" firstAttribute="top" secondItem="lpd-Be-UF5" secondAttribute="top" id="oIh-2s-g88"/>
+                                    <constraint firstItem="yG6-40-fn3" firstAttribute="leading" secondItem="lpd-Be-UF5" secondAttribute="leading" id="obz-G1-dAC"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XEh-z2-xhA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lpd-Be-UF5" firstAttribute="leading" secondItem="XEh-z2-xhA" secondAttribute="leading" id="Mgg-CY-9Vt"/>
-                            <constraint firstAttribute="bottom" secondItem="lpd-Be-UF5" secondAttribute="bottom" id="vCI-mn-vRX"/>
-                            <constraint firstItem="lpd-Be-UF5" firstAttribute="top" secondItem="hVH-EI-zea" secondAttribute="top" id="xRM-4v-lwE"/>
-                            <constraint firstItem="lpd-Be-UF5" firstAttribute="trailing" secondItem="XEh-z2-xhA" secondAttribute="trailing" id="zSr-Pe-xTj"/>
+                            <constraint firstItem="lpd-Be-UF5" firstAttribute="top" secondItem="hVH-EI-zea" secondAttribute="top" id="DDK-ok-fdO"/>
+                            <constraint firstAttribute="bottom" secondItem="lpd-Be-UF5" secondAttribute="bottom" id="DdP-uV-PxD"/>
+                            <constraint firstItem="lpd-Be-UF5" firstAttribute="leading" secondItem="XEh-z2-xhA" secondAttribute="leading" id="Djd-ya-B4a"/>
+                            <constraint firstItem="yG6-40-fn3" firstAttribute="height" secondItem="XEh-z2-xhA" secondAttribute="height" id="FQo-7Q-vig"/>
+                            <constraint firstItem="lpd-Be-UF5" firstAttribute="width" secondItem="hVH-EI-zea" secondAttribute="width" id="Ud5-xR-fEo"/>
+                            <constraint firstItem="yG6-40-fn3" firstAttribute="width" secondItem="XEh-z2-xhA" secondAttribute="width" id="VYj-xm-ycQ"/>
+                            <constraint firstItem="lpd-Be-UF5" firstAttribute="height" secondItem="hVH-EI-zea" secondAttribute="height" id="rUa-CU-tr7"/>
+                            <constraint firstItem="lpd-Be-UF5" firstAttribute="trailing" secondItem="XEh-z2-xhA" secondAttribute="trailing" id="uaQ-0X-2Fh"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="imageScrollView" destination="lpd-Be-UF5" id="Gzm-xC-Td0"/>
                         <outlet property="productImageView" destination="yG6-40-fn3" id="bfJ-Yr-9aX"/>
                     </connections>
                 </viewController>

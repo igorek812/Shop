@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavouriteViewController: UIViewController {
+final class FavouriteViewController: UIViewController {
     
     @IBOutlet weak var favouriteTableView: UITableView!
     
@@ -23,7 +23,7 @@ class FavouriteViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        if BacketData.shared.favouriteProducts.count != 0 {
+        if BacketData.shared.favouriteProducts.isEmpty {
             favouriteTableView.isHidden = false
             entityFavouriteLabel.isHidden = true
             favouriteTableViewManager?.set(favouriteProduits: BacketData.shared.favouriteProducts)
@@ -33,6 +33,9 @@ class FavouriteViewController: UIViewController {
             favouriteTableView.isHidden = true
         }
     }
+}
+
+extension FavouriteViewController {
     
     func setupTableView() {
         
@@ -49,5 +52,4 @@ class FavouriteViewController: UIViewController {
             self.show(productVC, sender: nil)
         }
     }
-    
 }

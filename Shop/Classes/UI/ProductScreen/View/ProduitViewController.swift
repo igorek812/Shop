@@ -55,6 +55,10 @@ class ProduitViewController: UIViewController {
             BacketData.shared.addProductInFavourite(product: product)
         }
     }
+
+}
+
+private extension ProduitViewController {
     
     private func setup() {
         
@@ -86,12 +90,12 @@ class ProduitViewController: UIViewController {
         productCollectionViewManager?.didSelect = { image in
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             guard let productImageVC = storyboard.instantiateViewController(identifier: "ProductImageView") as? ProductImageViewController else { return }
-            
+            productImageVC.modalPresentationStyle = .pageSheet
+            productImageVC.modalTransitionStyle = .partialCurl
             productImageVC.image = image
             self.show(productImageVC, sender: nil)
             
             
         }
     }
-
 }

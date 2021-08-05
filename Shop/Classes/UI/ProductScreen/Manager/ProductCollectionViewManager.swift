@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+final class ProductCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var imageProduct: [ProductImageModel] = []
     

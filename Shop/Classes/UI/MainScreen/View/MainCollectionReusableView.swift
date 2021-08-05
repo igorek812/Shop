@@ -13,15 +13,19 @@ class MainCollectionReusableView: UICollectionReusableView, UICollectionViewDele
     @IBOutlet weak var carouselPageControl: UIPageControl!
     
     let carouselCellModels = [
-        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1")),
-        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1")),
-        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1")),
-        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "CarouselPhoto1"))
+        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "carousel4")),
+        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "carousel1")),
+        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "carousel3")),
+        MainCarouselCellModel.init(image: #imageLiteral(resourceName: "carousel2"))
     ]
 
     var mainCarouselCollectionViewManager: MainCarouselCollectionViewManager?
     
-    func carouselInit() {
+}
+
+extension MainCollectionReusableView {
+    
+   func carouselInit() {
         mainCarouselCollectionViewManager = MainCarouselCollectionViewManager.init()
         carouselCollectionView.delegate = mainCarouselCollectionViewManager
         
@@ -35,6 +39,7 @@ class MainCollectionReusableView: UICollectionReusableView, UICollectionViewDele
 }
 
 extension MainCollectionReusableView: UIScrollViewDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
         carouselPageControl.currentPage = page
