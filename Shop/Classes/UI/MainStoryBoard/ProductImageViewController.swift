@@ -9,17 +9,26 @@ import UIKit
 
 class ProductImageViewController: UIViewController {
 
-    @IBOutlet weak var productImageView: UIImageView!
-    @IBOutlet weak var imageScrollView: UIScrollView!
+    @IBOutlet private(set) var productImageView: UIImageView!
+    @IBOutlet private(set) var imageScrollView: UIScrollView!
+    @IBOutlet private(set) var escapeButton: UIButton!
     
     var image: ProductImageModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let cross = #imageLiteral(resourceName: "cross").withRenderingMode(.alwaysTemplate)
+        escapeButton.setImage(cross, for: .normal)
+        escapeButton.tintColor = .white
         imageScrollView.delegate = self
+        
         productImageView.image = image?.image
         
+    }
+    
+    @IBAction func escapeTapped(_ sender: Any) {
+        dismiss(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -15,6 +15,8 @@ final class MainCarouselCollectionViewManager: NSObject, UICollectionViewDataSou
         self.cellModels = cellModels
     }
     
+    var updatePage: ((Int) -> Void)?
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellModels.count
     }
@@ -37,6 +39,14 @@ final class MainCarouselCollectionViewManager: NSObject, UICollectionViewDataSou
         return CGSize(width: width, height: height)
     }
     
+}
+
+extension MainCarouselCollectionViewManager: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let page = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        updatePage?(page)
+    }
 }
 
 

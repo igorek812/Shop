@@ -11,7 +11,7 @@ struct ProductModel {
     let image: [ProductImageModel]
     let name: String
     let price: String
-    var article: String
+    var article: [ArticleModel]
     let color: [ColorModel]
     let size: [SizeModel]
     let category: AssortmentCategory
@@ -23,6 +23,10 @@ struct ProductImageModel {
 
 struct ColorModel {
     let color: UIColor
+}
+
+struct ArticleModel {
+    let article: String
 }
 
 struct SizeModel {

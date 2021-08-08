@@ -23,7 +23,7 @@ final class FavouriteViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        if BacketData.shared.favouriteProducts.isEmpty {
+        if !BacketData.shared.favouriteProducts.isEmpty {
             favouriteTableView.isHidden = false
             entityFavouriteLabel.isHidden = true
             favouriteTableViewManager?.set(favouriteProduits: BacketData.shared.favouriteProducts)

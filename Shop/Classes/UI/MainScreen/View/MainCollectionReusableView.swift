@@ -28,21 +28,17 @@ extension MainCollectionReusableView {
    func carouselInit() {
         mainCarouselCollectionViewManager = MainCarouselCollectionViewManager.init()
         carouselCollectionView.delegate = mainCarouselCollectionViewManager
-        
         carouselCollectionView.dataSource = mainCarouselCollectionViewManager
         
-        mainCarouselCollectionViewManager?.set(cellModels: carouselCellModels )
+        mainCarouselCollectionViewManager?.set(cellModels: carouselCellModels)
+        mainCarouselCollectionViewManager?.updatePage = { [weak self] page in
+            self?.carouselPageControl.currentPage = page
+        }
         carouselCollectionView.reloadData()
         
         carouselPageControl.numberOfPages = carouselCellModels.count
     }
 }
 
-extension MainCollectionReusableView: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let page = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-        carouselPageControl.currentPage = page
-    }
-}
+
 

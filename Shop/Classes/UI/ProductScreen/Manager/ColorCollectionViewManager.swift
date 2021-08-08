@@ -11,6 +11,8 @@ final class ColorCollectionViewManager: NSObject, UICollectionViewDataSource, UI
     
     var color: [ColorModel] = []
     
+    var didSelect: ((ColorModel) -> Void)?
+    
     func set(product: ProductModel) {
         color = product.color
     }
@@ -38,4 +40,12 @@ final class ColorCollectionViewManager: NSObject, UICollectionViewDataSource, UI
         return CGSize(width: width, height: height)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath) as? ColorCollectionViewCell {
+            cell.layer.shadowColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
+            cell.layer.shadowRadius = 10
+            //didSelect?(color[indexPath.row])
+        }
+    }
 }

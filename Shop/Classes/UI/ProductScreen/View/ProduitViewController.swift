@@ -9,17 +9,18 @@ import UIKit
 
 class ProduitViewController: UIViewController {
     
-    @IBOutlet weak var productCollectionView: UICollectionView!
-    
-    @IBOutlet weak var colorCollectionView: UICollectionView!
-    
-    @IBOutlet weak var sizeCollectionView: UICollectionView!
+    var animator: Animator?
     
     var productCollectionViewManager: ProductCollectionViewManager?
     var sizeCollectionViewManager: SizeCollectionViewManager?
     var colorCollectionViewManager: ColorCollectionViewManager?
-    
     var product: ProductModel?
+    
+    @IBOutlet weak var productCollectionView: UICollectionView!
+    @IBOutlet weak var colorCollectionView: UICollectionView!
+    @IBOutlet weak var sizeCollectionView: UICollectionView!
+    
+    
     
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -67,7 +68,7 @@ private extension ProduitViewController {
         productCollectionViewManager = ProductCollectionViewManager.init()
         productCollectionView.delegate = productCollectionViewManager
         productCollectionView.dataSource = productCollectionViewManager
-        productCollectionViewManager?.set(imageProduct: [product.image[0]])
+        productCollectionViewManager?.set(imageProduct: product.image)
         productCollectionView.reloadData()
         
         sizeCollectionViewManager = SizeCollectionViewManager.init()
@@ -85,17 +86,44 @@ private extension ProduitViewController {
         categoryLabel.text = product.category.rawValue
         nameLabel.text = product.name
         priceLabel.text = product.price
-        articleLabel.text = product.article
+        articleLabel.text = product.article[0].article
         
         productCollectionViewManager?.didSelect = { image in
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             guard let productImageVC = storyboard.instantiateViewController(identifier: "ProductImageView") as? ProductImageViewController else { return }
-            productImageVC.modalPresentationStyle = .pageSheet
-            productImageVC.modalTransitionStyle = .partialCurl
+            
             productImageVC.image = image
-            self.show(productImageVC, sender: nil)
+    
+            productImageVC.modalPresentationStyle = .fullScreen
+            productImageVC.transitioningDelegate = self
+            
+            self.present(productImageVC, animated: true)
             
             
         }
+    }
+}
+
+extension ProduitViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    
+        guard let firstViewController = presenting as? ProduitViewController,
+            let secondViewController = presented as? ProductImageViewController,
+            let selectedCellImageViewSnapshot = productCollectionViewManager?.selectedCellImageViewSnapshot
+            else { return nil }
+
+        animator = Animator(type: .present, firstViewController: firstViewController, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
+        return animator
+    }
+
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
+        guard let secondViewController = dismissed as? ProductImageViewController,
+              let selectedCellImageViewSnapshot = productCollectionViewManager?.selectedCellImageViewSnapshot
+            else { return nil }
+
+        animator = Animator(type: .dismiss, firstViewController: self, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
+        return animator
     }
 }

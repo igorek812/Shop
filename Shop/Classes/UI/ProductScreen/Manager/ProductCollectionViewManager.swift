@@ -9,6 +9,9 @@ import UIKit
 
 final class ProductCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    var selectedCell: ProductCollectionViewCell?
+    var selectedCellImageViewSnapshot: UIView?
+    
     var imageProduct: [ProductImageModel] = []
     
     var didSelect: ((ProductImageModel) -> Void)?
@@ -41,6 +44,10 @@ final class ProductCollectionViewManager: NSObject, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        selectedCell = collectionView.cellForItem(at: indexPath) as? ProductCollectionViewCell
+        selectedCellImageViewSnapshot = selectedCell?.productImageView.snapshotView(afterScreenUpdates: false)
+        
         didSelect?(imageProduct[indexPath.row])
     }
     

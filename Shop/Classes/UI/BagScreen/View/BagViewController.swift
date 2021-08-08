@@ -22,7 +22,7 @@ class BagViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if BacketData.shared.productInBag.isEmpty {
+        if !BacketData.shared.productInBag.isEmpty {
             bagTableView.isHidden = false
             entityBagLabel.isHidden = true
             bagTableViewManager.set(productInBag: BacketData.shared.productInBag)
