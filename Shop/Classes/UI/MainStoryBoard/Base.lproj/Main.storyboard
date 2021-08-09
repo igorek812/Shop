@@ -547,16 +547,16 @@
         <!--Product Image View Controller-->
         <scene sceneID="vMg-T8-Tun">
             <objects>
-                <viewController storyboardIdentifier="ProductImageView" wantsFullScreenLayout="YES" hidesBottomBarWhenPushed="YES" id="xXf-Vf-df8" customClass="ProductImageViewController" customModule="Shop" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hVH-EI-zea">
+                <viewController storyboardIdentifier="ProductImageView" wantsFullScreenLayout="YES" id="xXf-Vf-df8" customClass="ProductImageViewController" customModule="Shop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="bottom" id="hVH-EI-zea">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="lpd-Be-UF5">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="lpd-Be-UF5">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-40-fn3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCE-m3-nIS">
                                         <rect key="frame" x="359" y="12" width="30" height="54"/>
@@ -570,28 +570,29 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="yG6-40-fn3" secondAttribute="trailing" id="3RL-OS-Unj"/>
-                                    <constraint firstItem="yG6-40-fn3" firstAttribute="width" secondItem="lpd-Be-UF5" secondAttribute="width" id="b8V-Rv-zRX"/>
-                                    <constraint firstItem="yG6-40-fn3" firstAttribute="top" secondItem="lpd-Be-UF5" secondAttribute="top" id="oIh-2s-g88"/>
-                                    <constraint firstItem="yG6-40-fn3" firstAttribute="leading" secondItem="lpd-Be-UF5" secondAttribute="leading" id="obz-G1-dAC"/>
-                                    <constraint firstAttribute="bottom" secondItem="yG6-40-fn3" secondAttribute="bottom" id="tc4-dR-kTj"/>
-                                    <constraint firstItem="yG6-40-fn3" firstAttribute="height" secondItem="lpd-Be-UF5" secondAttribute="height" multiplier="0.912946" id="tnX-Qb-8CO"/>
+                                    <constraint firstAttribute="bottom" secondItem="yG6-40-fn3" secondAttribute="bottom" id="1Tg-KU-Uc3"/>
+                                    <constraint firstAttribute="trailing" secondItem="yG6-40-fn3" secondAttribute="trailing" id="Tzj-x3-WZG"/>
+                                    <constraint firstItem="yG6-40-fn3" firstAttribute="top" secondItem="lpd-Be-UF5" secondAttribute="top" id="lsn-Aq-HW6"/>
+                                    <constraint firstItem="yG6-40-fn3" firstAttribute="leading" secondItem="lpd-Be-UF5" secondAttribute="leading" id="sDC-Kt-SwK"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XEh-z2-xhA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="yG6-40-fn3" firstAttribute="height" secondItem="hVH-EI-zea" secondAttribute="height" id="97A-Au-clg"/>
                             <constraint firstItem="CCE-m3-nIS" firstAttribute="top" secondItem="XEh-z2-xhA" secondAttribute="top" constant="12" id="BFu-0i-d2y"/>
-                            <constraint firstItem="lpd-Be-UF5" firstAttribute="top" secondItem="hVH-EI-zea" secondAttribute="top" id="DDK-ok-fdO"/>
-                            <constraint firstAttribute="bottom" secondItem="lpd-Be-UF5" secondAttribute="bottom" id="DdP-uV-PxD"/>
-                            <constraint firstItem="lpd-Be-UF5" firstAttribute="leading" secondItem="XEh-z2-xhA" secondAttribute="leading" id="Djd-ya-B4a"/>
+                            <constraint firstItem="lpd-Be-UF5" firstAttribute="height" secondItem="XEh-z2-xhA" secondAttribute="height" multiplier="1.09535" id="GK7-q4-DC5"/>
                             <constraint firstItem="XEh-z2-xhA" firstAttribute="trailing" secondItem="CCE-m3-nIS" secondAttribute="trailing" constant="25" id="H8t-ju-CKQ"/>
-                            <constraint firstItem="lpd-Be-UF5" firstAttribute="width" secondItem="hVH-EI-zea" secondAttribute="width" id="Ud5-xR-fEo"/>
-                            <constraint firstItem="lpd-Be-UF5" firstAttribute="height" secondItem="hVH-EI-zea" secondAttribute="height" id="rUa-CU-tr7"/>
-                            <constraint firstItem="lpd-Be-UF5" firstAttribute="trailing" secondItem="XEh-z2-xhA" secondAttribute="trailing" id="uaQ-0X-2Fh"/>
+                            <constraint firstItem="lpd-Be-UF5" firstAttribute="width" secondItem="XEh-z2-xhA" secondAttribute="width" id="XWX-Ic-iVf"/>
+                            <constraint firstItem="yG6-40-fn3" firstAttribute="width" secondItem="hVH-EI-zea" secondAttribute="width" id="gql-6T-8CS"/>
+                            <constraint firstItem="lpd-Be-UF5" firstAttribute="leading" secondItem="XEh-z2-xhA" secondAttribute="leading" id="hfw-ta-Vhe"/>
+                            <constraint firstItem="lpd-Be-UF5" firstAttribute="top" secondItem="hVH-EI-zea" secondAttribute="top" id="jGU-fq-2Kv"/>
+                            <constraint firstAttribute="bottom" secondItem="lpd-Be-UF5" secondAttribute="bottom" id="mvB-t0-T9b"/>
+                            <constraint firstItem="lpd-Be-UF5" firstAttribute="trailing" secondItem="XEh-z2-xhA" secondAttribute="trailing" id="uV9-zf-urW"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>

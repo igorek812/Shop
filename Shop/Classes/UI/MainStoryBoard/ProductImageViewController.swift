@@ -22,7 +22,6 @@ class ProductImageViewController: UIViewController {
         escapeButton.setImage(cross, for: .normal)
         escapeButton.tintColor = .white
         imageScrollView.delegate = self
-        
         productImageView.image = image?.image
         
     }

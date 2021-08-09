@@ -21,6 +21,16 @@ enum AssortmentCategory: String {
     case tops = "Топы, корсеты"
     case fitnessRubberBands = "Фитнес резинки"
     case sales = "Скидки"
+    
+}
+
+enum Category: String {
+    case sport = "Одежда для спорта"
+    case swimsuit = "Купальники и белье"
+    case tracksuits = "Спортивные костюмы"
+    case pants = "Брюки, джеггинсы, юбки"
+    case tops = "Топы, корсеты"
+    case fitnessRubberBands = "Фитнес резинки"
 }
 
 struct CatalogViewModel {

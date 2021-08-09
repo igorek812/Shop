@@ -108,12 +108,11 @@ extension ProduitViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     
-        guard let firstViewController = presenting as? ProduitViewController,
-            let secondViewController = presented as? ProductImageViewController,
+        guard let secondViewController = presented as? ProductImageViewController,
             let selectedCellImageViewSnapshot = productCollectionViewManager?.selectedCellImageViewSnapshot
             else { return nil }
 
-        animator = Animator(type: .present, firstViewController: firstViewController, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
+        animator = Animator(type: .present, firstViewController: self, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
         return animator
     }
 
