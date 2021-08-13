@@ -9,9 +9,11 @@ import UIKit
 
 final class BagTableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    var productInBag: [ProductModel] = []
+    var productInBag: [BagModel] = []
     
-    func set(productInBag: [ProductModel]) {
+    var didSelect: ((String) -> Void)?
+    
+    func set(productInBag: [BagModel]) {
         self.productInBag = productInBag
     }
     
@@ -23,22 +25,25 @@ final class BagTableViewManager: NSObject, UITableViewDataSource, UITableViewDel
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BagCell", for: indexPath) as? BagTableViewCell {
             
             cell.configureCell(cellModel: productInBag[indexPath.row])
-            
+            didSelect?(productInBag[indexPath.row].count)
             return cell
         }
         
         return UITableViewCell.init()
     }
-}
-
-extension BagTableViewManager {
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            productInBag.remove(at: indexPath.row)
             BacketData.shared.removeProductInBag(product: productInBag[indexPath.row])
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            productInBag.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
         }
     }
 }

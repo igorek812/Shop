@@ -13,14 +13,24 @@ class BagTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var colorLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var articleLabel: UILabel!
+    @IBOutlet weak var sizeLabel: UILabel!
+    @IBOutlet weak var countButton: UIButton!
     
-    func configureCell(cellModel: ProductModel) {
-        productImage.image = cellModel.image[0].image
-        nameLabel.text = cellModel.name
-        colorLabel.backgroundColor = cellModel.color[0].color
-        colorLabel.text = ""
-        priceLabel.text = cellModel.price
+    func configureCell(cellModel: BagModel) {
+        productImage.image = cellModel.product.image[0].image
+        nameLabel.text = cellModel.product.name
+        colorLabel.text = "Цвет: " + cellModel.selectedColor
+        sizeLabel.text = "Размер: " + cellModel.selectedSize
+        priceLabel.text = cellModel.product.price
+        articleLabel.text = cellModel.product.article[0].article
+        
     }
+    
+    @IBAction func tappedCountButton(_ sender: Any) {
+        
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -38,9 +38,10 @@ final class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let height: CGFloat = collectionView.frame.height / 2 - 10
+        let height: CGFloat = collectionView.frame.height / 2
         let width = collectionView.frame.width / 2 - 10
         
         return CGSize(width: width, height: height)
     }
+    
 }

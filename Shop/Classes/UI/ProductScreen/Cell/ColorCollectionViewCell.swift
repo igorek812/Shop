@@ -14,5 +14,7 @@ class ColorCollectionViewCell: UICollectionViewCell {
         backgroundColor = cellModel.color
         
         layer.cornerRadius = frame.height / 2
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.systemGray.cgColor
     }
 }

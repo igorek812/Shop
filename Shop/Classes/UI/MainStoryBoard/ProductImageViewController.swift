@@ -20,7 +20,7 @@ class ProductImageViewController: UIViewController {
         
         let cross = #imageLiteral(resourceName: "cross").withRenderingMode(.alwaysTemplate)
         escapeButton.setImage(cross, for: .normal)
-        escapeButton.tintColor = .white
+        escapeButton.tintColor = .systemGray
         imageScrollView.delegate = self
         productImageView.image = image?.image
         

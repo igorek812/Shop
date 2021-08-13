@@ -37,5 +37,20 @@ class FavouriteTableViewManager: NSObject, UITableViewDataSource, UITableViewDel
         didSelect?(favouriteProduits[indexPath.row])
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            BacketData.shared.removeProductInFavourite(product: favouriteProduits[indexPath.row])
+            favouriteProduits.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        }
+    }
+    
     
 }

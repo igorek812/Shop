@@ -15,12 +15,17 @@ class ProduitViewController: UIViewController {
     var sizeCollectionViewManager: SizeCollectionViewManager?
     var colorCollectionViewManager: ColorCollectionViewManager?
     var product: ProductModel?
+    var selectedSize: String?
+    var selectedColor: String?
+    
+    @IBOutlet weak var chooseSizeLabel: UILabel!
     
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var colorCollectionView: UICollectionView!
     @IBOutlet weak var sizeCollectionView: UICollectionView!
     
     
+    @IBOutlet weak var carouselPageControl: UIPageControl!
     
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -28,17 +33,36 @@ class ProduitViewController: UIViewController {
     @IBOutlet weak var articleLabel: UILabel!
     @IBOutlet weak var bagButton: UIButton!
     @IBOutlet weak var favouriteButton: UIButton!
+    @IBOutlet weak var colorNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
         
+        chooseSizeLabel.isHidden = true
+        
+        setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkFavouriteButton()
     }
     
     @IBAction func bagButtonTapped(_ sender: Any) {
         
-        guard let product = product else { return }
-        BacketData.shared.addProductToBag(product: product)
+        if selectedSize == nil {
+            chooseSizeLabel.isHidden = false
+            let alertVC = UIAlertController(title: "Размер не выбран", message: "Пожалуйста, выберите размер", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Ок", style: .default, handler: nil)
+            alertVC.addAction(alertAction)
+            self.present(alertVC, animated: true, completion: nil)
+        }
+        else {
+            bagButton.titleLabel?.text = "Товар в корзине"
+            chooseSizeLabel.isHidden = true
+            selectedColor = colorNameLabel.text ?? ""
+            guard let product = product else { return }
+            BacketData.shared.addProductToBag(product: product, size: selectedSize ?? "", color: selectedColor ?? "")
+        }
     }
     
     @IBAction func favouriteButtonTapped(_ sender: Any) {
@@ -61,26 +85,63 @@ class ProduitViewController: UIViewController {
 
 private extension ProduitViewController {
     
-    private func setup() {
+    private func checkFavouriteButton() {
+        
+        let starFill = UIImage(systemName: "star.fill")
+        let star = UIImage(systemName: "star")
+        
+        if BacketData.shared.favouriteProducts.contains(where: { product in
+            return true
+        }) {
+            favouriteButton.setImage(starFill, for: .normal)
+        } else {
+            favouriteButton.setImage(star, for: .normal)
+        }
+    }
+    
+    func updateImage(color: ColorModel) {
         
         guard let product = product else { return }
         
+        if color.isDefault {
+            
+        }
+        self.colorNameLabel.text = color.name
+        self.productCollectionViewManager?.imageProduct.removeAll()
+        self.productCollectionViewManager?.set(imageProduct: product.image, colorName: color.name)
+        self.productCollectionView.reloadData()
+    }
+    
+    private func setup() {
+        
+        guard let product = product else { return }
+        colorNameLabel.text = product.color[0].name
+            
         productCollectionViewManager = ProductCollectionViewManager.init()
         productCollectionView.delegate = productCollectionViewManager
         productCollectionView.dataSource = productCollectionViewManager
-        productCollectionViewManager?.set(imageProduct: product.image)
+        productCollectionViewManager?.set(imageProduct: product.image, colorName: colorNameLabel.text ?? "nil")
+        productCollectionViewManager?.updatePage = { [weak self] page in
+            self?.carouselPageControl.currentPage = page
+        }
         productCollectionView.reloadData()
         
         sizeCollectionViewManager = SizeCollectionViewManager.init()
         sizeCollectionView.delegate = sizeCollectionViewManager
         sizeCollectionView.dataSource = sizeCollectionViewManager
         sizeCollectionViewManager?.set(product: product)
+        sizeCollectionViewManager?.didSelect = { selectedSize in
+            self.selectedSize = selectedSize
+        }
         sizeCollectionView.reloadData()
         
         colorCollectionViewManager = ColorCollectionViewManager.init()
         colorCollectionView.delegate = colorCollectionViewManager
         colorCollectionView.dataSource = colorCollectionViewManager
         colorCollectionViewManager?.set(product: product)
+        colorCollectionViewManager?.didSelect = { color in
+            self.updateImage(color: color)
+        }
         colorCollectionView.reloadData()
         
         categoryLabel.text = product.category.rawValue

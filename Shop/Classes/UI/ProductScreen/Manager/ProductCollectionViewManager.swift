@@ -13,11 +13,17 @@ final class ProductCollectionViewManager: NSObject, UICollectionViewDataSource, 
     var selectedCellImageViewSnapshot: UIView?
     
     var imageProduct: [ProductImageModel] = []
+    var colorName: String = ""
     
     var didSelect: ((ProductImageModel) -> Void)?
+    var updatePage: ((Int) -> Void)?
     
-    func set(imageProduct: [ProductImageModel]) {
-        self.imageProduct = imageProduct
+    func set(imageProduct: [ProductImageModel], colorName: String) {
+        for i in imageProduct {
+            if i.color == colorName {
+                self.imageProduct.append(i)
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -28,9 +34,9 @@ final class ProductCollectionViewManager: NSObject, UICollectionViewDataSource, 
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCollectionViewCell {
             
-            cell.configureCell(cellModel: imageProduct[indexPath.row])
+                cell.configureCell(cellModel: imageProduct[indexPath.row])
             
-            return cell
+                return cell
         }
         
         return UICollectionViewCell.init()
@@ -50,6 +56,11 @@ final class ProductCollectionViewManager: NSObject, UICollectionViewDataSource, 
         
         didSelect?(imageProduct[indexPath.row])
     }
-    
-    
+}
+
+extension ProductCollectionViewManager: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let page = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        updatePage?(page)
+    }
 }

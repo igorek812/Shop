@@ -10,11 +10,13 @@ import UIKit
 final class ColorCollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var color: [ColorModel] = []
+    var image: [ProductImageModel] = []
     
     var didSelect: ((ColorModel) -> Void)?
     
     func set(product: ProductModel) {
         color = product.color
+        image = product.image
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -23,10 +25,9 @@ final class ColorCollectionViewManager: NSObject, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath) as? ColorCollectionViewCell {
-            
-            cell.configureCell(cellModel: color[indexPath.row])
-            
-            return cell
+        
+                cell.configureCell(cellModel: color[indexPath.row])
+                return cell
         }
         
         return UICollectionViewCell.init()
@@ -42,11 +43,18 @@ final class ColorCollectionViewManager: NSObject, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath) as? ColorCollectionViewCell {
-            cell.layer.shadowColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
-            cell.layer.shadowRadius = 10
-            cell.backgroundColor = .blue
-            //didSelect?(color[indexPath.row])
+        if let cell = collectionView.cellForItem(at: indexPath) as? ColorCollectionViewCell {
+            cell.layer.borderWidth = 4
+            cell.layer.borderColor = UIColor.systemGray.cgColor
+            didSelect?(color[indexPath.row])
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? ColorCollectionViewCell {
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.systemGray.cgColor
         }
     }
 }

@@ -11,6 +11,8 @@ final class SizeCollectionViewManager: NSObject, UICollectionViewDataSource, UIC
     
     var sizeProduct: [SizeModel] = []
     
+    var didSelect: ((String) -> Void)?
+    
     func set(product: ProductModel) {
         sizeProduct = product.size
     }
@@ -40,8 +42,20 @@ final class SizeCollectionViewManager: NSObject, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCell", for: indexPath) as? SizeCollectionViewCell {
-            cell.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        if let cell = collectionView.cellForItem(at: indexPath) as? SizeCollectionViewCell {
+            cell.backgroundColor = .lightGray
+            cell.sizeLabel.textColor = .white
+            didSelect?(cell.sizeLabel.text ?? "")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? SizeCollectionViewCell {
+            cell.backgroundColor = .white
+            cell.sizeLabel.textColor = .systemGray
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.lightGray.cgColor
         }
     }
     

@@ -9,6 +9,8 @@ import UIKit
 
 class AssortmentViewController: UIViewController {
     
+    var didFavourite: ((UIImage) -> Void)?
+    
     @IBOutlet weak var assortmentCollectionView: UICollectionView!
     
     public var category: AssortmentCategory?
@@ -22,6 +24,10 @@ class AssortmentViewController: UIViewController {
         
         setupNavBar()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+    
     }
     
 }

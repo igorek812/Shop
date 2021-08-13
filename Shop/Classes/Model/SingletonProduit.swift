@@ -13,7 +13,7 @@ class BacketData {
     private init() {}
     
     var favouriteProducts: [ProductModel] = []
-    var productInBag: [ProductModel] = []
+    var productInBag: [BagModel] = []
     
     func addProductInFavourite(product: ProductModel) {
         if !self.favouriteProducts.contains(where: { product in
@@ -31,17 +31,18 @@ class BacketData {
         }
     }
     
-    func addProductToBag(product: ProductModel) {
+    func addProductToBag(product: ProductModel, size: String, color: String) {
         if !self.productInBag.contains(where: { product in
             return true
         }) {
+            let product = BagModel.init(product: product, selectedSize: size, selectedColor: color, count: "1")
             self.productInBag.append(product)
         }
     }
     
-    func removeProductInBag(product: ProductModel) {
+    func removeProductInBag(product: BagModel) {
         for (i, value) in self.productInBag.enumerated() {
-            if value.name == product.name {
+            if value.product.name == product.product.name {
                 self.productInBag.remove(at: i)
             }
         }

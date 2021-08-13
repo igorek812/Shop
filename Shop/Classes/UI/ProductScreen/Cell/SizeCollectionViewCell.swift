@@ -13,7 +13,9 @@ class SizeCollectionViewCell: UICollectionViewCell {
     
     func configureCell(cellModel: SizeModel) {
         sizeLabel.text = cellModel.size
-        backgroundColor = UIColor.lightGray
-        sizeLabel.textColor = UIColor.white
+        backgroundColor = .white
+        sizeLabel.textColor = .lightGray
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.lightGray.cgColor
     }
 }
