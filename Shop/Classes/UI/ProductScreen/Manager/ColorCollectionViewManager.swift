@@ -24,10 +24,19 @@ final class ColorCollectionViewManager: NSObject, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath) as? ColorCollectionViewCell {
         
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath) as? ColorCollectionViewCell {
+            
+            if (indexPath.row == 0) {
+                collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+                cell.configureSelectedCell(cellModel: color[indexPath.row])
+                return cell
+            }
+            else {
                 cell.configureCell(cellModel: color[indexPath.row])
                 return cell
+            }
         }
         
         return UICollectionViewCell.init()
@@ -44,6 +53,7 @@ final class ColorCollectionViewManager: NSObject, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if let cell = collectionView.cellForItem(at: indexPath) as? ColorCollectionViewCell {
+            
             cell.layer.borderWidth = 4
             cell.layer.borderColor = UIColor.systemGray.cgColor
             didSelect?(color[indexPath.row])
@@ -53,8 +63,10 @@ final class ColorCollectionViewManager: NSObject, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         
         if let cell = collectionView.cellForItem(at: indexPath) as? ColorCollectionViewCell {
-            cell.layer.borderWidth = 1
-            cell.layer.borderColor = UIColor.systemGray.cgColor
+    
+                cell.layer.borderWidth = 1
+                cell.layer.borderColor = UIColor.systemGray.cgColor
+            
         }
     }
 }

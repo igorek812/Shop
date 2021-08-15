@@ -15,7 +15,7 @@ class BagTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var articleLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
-    @IBOutlet weak var countButton: UIButton!
+    @IBOutlet weak var countLabel: UILabel!
     
     func configureCell(cellModel: BagModel) {
         productImage.image = cellModel.product.image[0].image
@@ -24,13 +24,8 @@ class BagTableViewCell: UITableViewCell {
         sizeLabel.text = "Размер: " + cellModel.selectedSize
         priceLabel.text = cellModel.product.price
         articleLabel.text = cellModel.product.article[0].article
-        
+        countLabel.text = String(cellModel.count)
     }
-    
-    @IBAction func tappedCountButton(_ sender: Any) {
-        
-    }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

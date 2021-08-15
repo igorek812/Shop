@@ -8,6 +8,7 @@
 import UIKit
 
 struct ProductModel {
+    let id: Int
     let image: [ProductImageModel]
     let name: String
     let price: String
@@ -25,7 +26,6 @@ struct ProductImageModel {
 struct ColorModel {
     let color: UIColor
     let name: String
-    let isDefault: Bool
 }
 
 struct ArticleModel {
@@ -40,5 +40,5 @@ struct BagModel {
     let product: ProductModel
     var selectedSize: String
     var selectedColor: String
-    var count: String
+    var count: Int
 }

@@ -11,7 +11,7 @@ final class BagTableViewManager: NSObject, UITableViewDataSource, UITableViewDel
     
     var productInBag: [BagModel] = []
     
-    var didSelect: ((String) -> Void)?
+    var didSelect: ((Int) -> Void)?
     
     func set(productInBag: [BagModel]) {
         self.productInBag = productInBag
@@ -25,7 +25,7 @@ final class BagTableViewManager: NSObject, UITableViewDataSource, UITableViewDel
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BagCell", for: indexPath) as? BagTableViewCell {
             
             cell.configureCell(cellModel: productInBag[indexPath.row])
-            didSelect?(productInBag[indexPath.row].count)
+            didSelect?(indexPath.row)
             return cell
         }
         

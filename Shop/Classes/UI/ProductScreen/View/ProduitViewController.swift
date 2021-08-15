@@ -90,8 +90,8 @@ private extension ProduitViewController {
         let starFill = UIImage(systemName: "star.fill")
         let star = UIImage(systemName: "star")
         
-        if BacketData.shared.favouriteProducts.contains(where: { product in
-            return true
+        if BacketData.shared.favouriteProducts.contains(where: { item in
+            item.id == product?.id
         }) {
             favouriteButton.setImage(starFill, for: .normal)
         } else {
@@ -103,9 +103,6 @@ private extension ProduitViewController {
         
         guard let product = product else { return }
         
-        if color.isDefault {
-            
-        }
         self.colorNameLabel.text = color.name
         self.productCollectionViewManager?.imageProduct.removeAll()
         self.productCollectionViewManager?.set(imageProduct: product.image, colorName: color.name)
@@ -159,8 +156,6 @@ private extension ProduitViewController {
             productImageVC.transitioningDelegate = self
             
             self.present(productImageVC, animated: true)
-            
-            
         }
     }
 }

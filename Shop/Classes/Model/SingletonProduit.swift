@@ -16,8 +16,8 @@ class BacketData {
     var productInBag: [BagModel] = []
     
     func addProductInFavourite(product: ProductModel) {
-        if !self.favouriteProducts.contains(where: { product in
-            return true
+        if !self.favouriteProducts.contains(where: { item in
+            item.id == product.id
         }) {
             self.favouriteProducts.append(product)
         }
@@ -32,10 +32,10 @@ class BacketData {
     }
     
     func addProductToBag(product: ProductModel, size: String, color: String) {
-        if !self.productInBag.contains(where: { product in
-            return true
+        if !self.productInBag.contains(where: { item in
+            item.product.id == product.id
         }) {
-            let product = BagModel.init(product: product, selectedSize: size, selectedColor: color, count: "1")
+            let product = BagModel.init(product: product, selectedSize: size, selectedColor: color, count: 1)
             self.productInBag.append(product)
         }
     }

@@ -17,4 +17,13 @@ class ColorCollectionViewCell: UICollectionViewCell {
         layer.borderWidth = 1
         layer.borderColor = UIColor.systemGray.cgColor
     }
+    
+    func configureSelectedCell(cellModel: ColorModel) {
+        
+        backgroundColor = cellModel.color
+        
+        layer.cornerRadius = frame.height / 2
+        layer.borderWidth = 4
+        layer.borderColor = UIColor.systemGray.cgColor
+    }
 }
