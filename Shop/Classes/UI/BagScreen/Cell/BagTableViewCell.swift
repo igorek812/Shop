@@ -8,6 +8,9 @@
 import UIKit
 
 class BagTableViewCell: UITableViewCell {
+    
+    var plusOneMoreItem: (() -> Void)?
+    var minusOneMoreItem: (() -> Void)?
 
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -22,11 +25,19 @@ class BagTableViewCell: UITableViewCell {
         nameLabel.text = cellModel.product.name
         colorLabel.text = "Цвет: " + cellModel.selectedColor
         sizeLabel.text = "Размер: " + cellModel.selectedSize
-        priceLabel.text = cellModel.product.price
+        priceLabel.text = "\(cellModel.product.price) руб."
         articleLabel.text = cellModel.product.article[0].article
         countLabel.text = String(cellModel.count)
     }
     
+    @IBAction func plusButtonTapped(_ sender: Any) {
+        plusOneMoreItem?()
+        
+    }
+    
+    @IBAction func minusButtonTapped(_ sender: Any) {
+        minusOneMoreItem?()
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

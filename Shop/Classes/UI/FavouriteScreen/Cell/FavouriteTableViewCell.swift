@@ -17,9 +17,9 @@ class FavouriteTableViewCell: UITableViewCell {
     var addToBagButton: ProductModel?
     
     func configureCell(cellModel: ProductModel) {
-        categoryLabel.text = cellModel.category.rawValue
+        categoryLabel.text = cellModel.category[0].rawValue
         nameLabel.text = cellModel.name
-        priceLabel.text = cellModel.price
+        priceLabel.text = "\(cellModel.price) руб."
         productImage.image = cellModel.image[0].image
         addToBagButton = cellModel
     }

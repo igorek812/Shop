@@ -27,7 +27,7 @@ class AssortmentViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-    
+        
     }
     
 }

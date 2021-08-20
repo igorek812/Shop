@@ -16,7 +16,7 @@ final class AssortimentService {
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "blackshoes-3"), color: "Black"),
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "blackshoes"), color: "Black")],
                           name: "Легинсы с молниями и фигурными линиями (L24)",
-                          price: "5700 руб.",
+                          price: 5700,
                           article: [ArticleModel.init(article: "Артикул: L24-9005-40/164-(XS/164)")],
                           color: [ColorModel.init(color: .black, name: "Black")],
                           size:
@@ -36,7 +36,7 @@ final class AssortimentService {
                              SizeModel.init(size: "46/170(L/170)"),
                              SizeModel.init(size: "46/176(L/176)"),
                              SizeModel.init(size: "46/182(L/182)")],
-                          category: .pants),
+                          category: [.pants, .new]),
         
         ProductModel.init(id: 2,
                           image: [ProductImageModel.init(image: #imageLiteral(resourceName: "avocado1"), color: "Avocado"),
@@ -48,14 +48,14 @@ final class AssortimentService {
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "cannoliCream3"), color: "Cannoli cream"),
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "cannoliCream4"), color: "Cannoli cream")],
                           name: "Раздельный купальник с разрезом под грудью (Q13)",
-                          price: "4500 руб.",
+                          price: 4500,
                           article: [ArticleModel.init(article: "Артикул: Q13-08324-40-(XS)")],
                           color: [ColorModel.init(color: UIColor(red: 237/255, green: 245/255, blue: 206/255, alpha: 1), name: "Avocado"), ColorModel.init(color: UIColor(red: 251/255, green: 251/255, blue: 251/255, alpha: 1), name: "Cannoli cream")],
                           size: [SizeModel.init(size: "40(XS)"),
                                  SizeModel.init(size: "42(S)"),
                                  SizeModel.init(size: "44(M)"),
                                  SizeModel.init(size: "46(L)")],
-                          category: .swimsuit),
+                          category: [.swimsuit, .new]),
         
         ProductModel.init(id: 3,
                           image: [ProductImageModel.init(image: #imageLiteral(resourceName: "blackshorts-1"), color: "Black"),
@@ -67,7 +67,7 @@ final class AssortimentService {
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "spirit3"), color: "Spirit"),
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "spirit4"), color: "Spirit")],
                           name: "Шорты с фигурным вырезом и анатомическим кроем (W5)",
-                          price: "4300 руб.",
+                          price: 4300,
                           article: [ArticleModel.init(article: "Артикул: W5-9005-40-(XS)")],
                           color: [ColorModel.init(color: .black, name: "Black"),
                                   ColorModel(color: UIColor(red: 111/255, green: 122/255, blue: 147/255, alpha: 1), name: "Spirit")],
@@ -75,7 +75,7 @@ final class AssortimentService {
                                  SizeModel.init(size: "42(S)"),
                                  SizeModel.init(size: "44(M)"),
                                  SizeModel.init(size: "46(L)")],
-                          category: .sport),
+                          category: [.sport, .new]),
         
         ProductModel.init(id: 4,
                           image: [ProductImageModel.init(image: #imageLiteral(resourceName: "butternut1"), color: "Butternut"),
@@ -87,13 +87,13 @@ final class AssortimentService {
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "soft3"), color: "Soft"),
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "soft4"), color: "Soft")],
                           name: "Бесшовный спортивный бюстгальтер (Y4)",
-                          price: "2700 руб.",
+                          price: 2700,
                           article: [ArticleModel.init(article: "Артикул: Y4-11-0602tpx-40/-(XS)")],
                           color: [ColorModel.init(color: UIColor(red: 239/255, green: 234/255, blue: 231/255, alpha: 1), name: "Soft"), ColorModel(color: UIColor(red: 233/255, green: 176/255, blue: 137/255, alpha: 1), name: "Butternut")],
                           size: [SizeModel.init(size: "40(XS)"),
                                  SizeModel.init(size: "42(S)"),
                                  SizeModel.init(size: "44(M)")],
-                          category: .sales),
+                          category: [.sales, .new]),
         
         ProductModel.init(id: 4,
                           image: [ProductImageModel.init(image: #imageLiteral(resourceName: "blackbomber-1"), color: "Black"),
@@ -105,14 +105,14 @@ final class AssortimentService {
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "vapore3"), color: "Vapore"),
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "vapore4"), color: "Vapore")],
                           name: "Бомбер с контрастными строчками (M4)",
-                          price: "14900 руб.",
+                          price: 14900,
                           article: [ArticleModel.init(article: "Артикул: M4-9005-40/42-(XS/S)")],
                           color: [ColorModel.init(color: .black, name: "Black"),
                                   ColorModel(color: UIColor(red: 229/255, green: 229/255, blue: 229/255, alpha: 1), name: "Vapore")],
                           size:
                             [SizeModel.init(size: "40/42(XS/S)"),
                              SizeModel.init(size: "44/46(M/L)")],
-                          category: .tracksuits),
+                          category: [.tracksuits, .new]),
         
         ProductModel.init(id: 5,
                           image: [ProductImageModel.init(image: #imageLiteral(resourceName: "blacktop"), color: "Black"),
@@ -120,14 +120,14 @@ final class AssortimentService {
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "blacktop-3"), color: "Black"),
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "blacktop"), color: "Black")],
                           name: "Топ на молнии c рельефными линиями и длинным рукавом (N14)",
-                          price: "4300 руб.",
+                          price: 4300,
                           article: [ArticleModel.init(article: "Артикул: N14-9005-40-(XS)")],
                           color: [ColorModel.init(color: .black, name: "Топ на молнии c рельефными линиями и длинным рукавом (N14)")],
                           size: [SizeModel.init(size: "40(XS)"),
                                  SizeModel.init(size: "42(S)"),
                                  SizeModel.init(size: "44(M)"),
                                  SizeModel.init(size: "46(L)")],
-                          category: .tops),
+                          category: [.tops, .new]),
         
         ProductModel.init(id: 6,
                           image: [ProductImageModel.init(image: #imageLiteral(resourceName: "blue-1"), color: "Blue"),
@@ -139,15 +139,20 @@ final class AssortimentService {
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "grey-3"), color: "Grey"),
                                   ProductImageModel.init(image: #imageLiteral(resourceName: "grey"), color: "Grey")],
                           name: "Набор фитнес резинок Iron by Mironova (тканевые)",
-                          price: "2400 руб.",
+                          price: 2400,
                           article: [ArticleModel.init(article: "Артикул: RBO14-30")],
                           color: [ColorModel.init(color: .blue, name: "Blue"),
                                   ColorModel(color: UIColor(red: 111/255, green: 111/255, blue: 114/255, alpha: 1), name: "Grey")],
                           size: [SizeModel.init(size: "8x33/8x38/8x43")],
-                          category: .fitnessRubberBands)
+                          category: [.fitnessRubberBands, .new])
     ]
     
     func getItemsBy(category: AssortmentCategory) -> [ProductModel] {
-        return items.filter { $0.category == category }
+        for i in items {
+            if i.category.contains(.new) {
+                
+            }
+        }
+        return items.filter { $0.category[0] == category }
     }
 }

@@ -17,12 +17,27 @@ class AssortmentCollectionViewCell: UICollectionViewCell {
     
     var product: ProductModel?
     
+    private func checkFavouriteButton() {
+        
+        let starFill = UIImage(systemName: "star.fill")
+        let star = UIImage(systemName: "star")
+        
+        if BacketData.shared.favouriteProducts.contains(where: { item in
+            item.id == product?.id
+        }) {
+            favouriteButton.setBackgroundImage(starFill, for: .normal)
+        } else {
+            favouriteButton.setBackgroundImage(star, for: .normal)
+        }
+    }
+    
     func configureCell(assortmentCell: ProductModel) {
         itemImage.image = assortmentCell.image[0].image
-        categoryLabel.text = assortmentCell.category.rawValue
+        categoryLabel.text = assortmentCell.category[0].rawValue
         nameLabel.text = assortmentCell.name
-        priceLabel.text = assortmentCell.price
+        priceLabel.text = "\(assortmentCell.price) руб."
         product = assortmentCell
+        checkFavouriteButton()
     }
     
     @IBAction func favouriteButtonTapped(_ sender: Any) {

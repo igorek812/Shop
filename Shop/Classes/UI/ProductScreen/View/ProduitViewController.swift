@@ -57,11 +57,13 @@ class ProduitViewController: UIViewController {
             self.present(alertVC, animated: true, completion: nil)
         }
         else {
-            bagButton.titleLabel?.text = "Товар в корзине"
+            bagButton.setTitle("Товар добавлен в корзину", for: .normal)
+            bagButton.backgroundColor = .systemGray
             chooseSizeLabel.isHidden = true
             selectedColor = colorNameLabel.text ?? ""
             guard let product = product else { return }
             BacketData.shared.addProductToBag(product: product, size: selectedSize ?? "", color: selectedColor ?? "")
+            tabBarController?.tabBar.updateBagBadge(badge: "\(BacketData.shared.countProductInBag)")
         }
     }
     
@@ -141,9 +143,9 @@ private extension ProduitViewController {
         }
         colorCollectionView.reloadData()
         
-        categoryLabel.text = product.category.rawValue
+        categoryLabel.text = product.category[0].rawValue
         nameLabel.text = product.name
-        priceLabel.text = product.price
+        priceLabel.text = "\(product.price) руб."
         articleLabel.text = product.article[0].article
         
         productCollectionViewManager?.didSelect = { image in

@@ -11,11 +11,11 @@ struct ProductModel {
     let id: Int
     let image: [ProductImageModel]
     let name: String
-    let price: String
+    var price: Int
     var article: [ArticleModel]
     var color: [ColorModel]
     var size: [SizeModel]
-    let category: AssortmentCategory
+    let category: [AssortmentCategory]
 }
 
 struct ProductImageModel {
@@ -37,7 +37,7 @@ struct SizeModel {
 }
 
 struct BagModel {
-    let product: ProductModel
+    var product: ProductModel
     var selectedSize: String
     var selectedColor: String
     var count: Int

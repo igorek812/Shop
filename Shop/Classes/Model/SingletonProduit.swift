@@ -14,6 +14,7 @@ class BacketData {
     
     var favouriteProducts: [ProductModel] = []
     var productInBag: [BagModel] = []
+    var countProductInBag: Int = 0
     
     func addProductInFavourite(product: ProductModel) {
         if !self.favouriteProducts.contains(where: { item in
@@ -36,6 +37,7 @@ class BacketData {
             item.product.id == product.id
         }) {
             let product = BagModel.init(product: product, selectedSize: size, selectedColor: color, count: 1)
+            countProductInBag += 1
             self.productInBag.append(product)
         }
     }
@@ -44,6 +46,7 @@ class BacketData {
         for (i, value) in self.productInBag.enumerated() {
             if value.product.name == product.product.name {
                 self.productInBag.remove(at: i)
+                self.countProductInBag -= 1
             }
         }
     }

@@ -11,7 +11,9 @@ final class BagTableViewManager: NSObject, UITableViewDataSource, UITableViewDel
     
     var productInBag: [BagModel] = []
     
-    var didSelect: ((Int) -> Void)?
+    var updateCellBy: ((_ indexPath: IndexPath) -> Void)?
+    
+    var updateTotalPrice: (([BagModel], _ indexPath: IndexPath) -> Void)?
     
     func set(productInBag: [BagModel]) {
         self.productInBag = productInBag
@@ -25,7 +27,24 @@ final class BagTableViewManager: NSObject, UITableViewDataSource, UITableViewDel
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BagCell", for: indexPath) as? BagTableViewCell {
             
             cell.configureCell(cellModel: productInBag[indexPath.row])
-            didSelect?(indexPath.row)
+            cell.plusOneMoreItem = { [weak self] in
+                self?.productInBag[indexPath.row].count += 1
+                BacketData.shared.productInBag[indexPath.row].count += 1
+                self?.updateCellBy?(indexPath)
+            }
+            cell.minusOneMoreItem = { [weak self] in
+                if (self?.productInBag[indexPath.row].count)! < 2 {
+                    self?.productInBag[indexPath.row].count = 1
+                    BacketData.shared.productInBag[indexPath.row].count = 1
+                    self?.updateCellBy?(indexPath)
+                } else {
+                    self?.productInBag[indexPath.row].count -= 1
+                    BacketData.shared.productInBag[indexPath.row].count -= 1
+                    self?.updateCellBy?(indexPath)
+                }
+            }
+            updateTotalPrice?(productInBag, indexPath)
+
             return cell
         }
         

@@ -11,11 +11,11 @@ final class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSourc
     
     var assortment: [ProductModel] = []
     
+    var didSelect: ((ProductModel) -> Void)?
+    
     func set(assortment: [ProductModel]) {
         self.assortment = assortment
     }
-    
-    var didSelect: ((ProductModel) -> Void)?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return assortment.count

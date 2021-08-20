@@ -7,8 +7,8 @@
 
 import UIKit
 
-extension BagViewController: UITabBarDelegate {
+extension UITabBar {
     func updateBagBadge(badge: String) {
-        tabBarController?.tabBar.items?[2].badgeValue = badge
+        items?[2].badgeValue = badge
     }
 }

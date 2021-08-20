@@ -888,7 +888,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gCF-0d-5UN">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="630.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BagCell" id="uvT-z9-huj" customClass="BagTableViewCell" customModule="Shop" customModuleProvider="target">
@@ -935,6 +935,9 @@
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hy9-sj-CuD">
                                                                             <rect key="frame" x="60.5" y="0.0" width="30" height="30"/>
                                                                             <state key="normal" title="-"/>
+                                                                            <connections>
+                                                                                <action selector="minusButtonTapped:" destination="uvT-z9-huj" eventType="touchUpInside" id="8vn-Wd-LCC"/>
+                                                                            </connections>
                                                                         </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlR-s2-qi5">
                                                                             <rect key="frame" x="90.5" y="0.0" width="7.5" height="30"/>
@@ -946,7 +949,7 @@
                                                                             <rect key="frame" x="98" y="0.0" width="30" height="30"/>
                                                                             <state key="normal" title="+"/>
                                                                             <connections>
-                                                                                <action selector="countButtonsTapped:" destination="dmY-fi-gDH" eventType="touchUpInside" id="wRH-QN-uTN"/>
+                                                                                <action selector="plusButtonTapped:" destination="uvT-z9-huj" eventType="touchUpInside" id="39e-a9-Lyj"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>
@@ -1001,6 +1004,23 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgM-cX-oaa">
+                                <rect key="frame" x="16" y="769" width="382" height="34"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Оформить заказ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="orderButtonTapped:" destination="dmY-fi-gDH" eventType="touchUpInside" id="I1c-vN-hAj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZU-tC-6ZR">
+                                <rect key="frame" x="16" y="733.5" width="382" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="x7b-PV-5wb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1011,7 +1031,13 @@
                             <constraint firstItem="gCF-0d-5UN" firstAttribute="leading" secondItem="x7b-PV-5wb" secondAttribute="leading" id="DP0-8J-TOX"/>
                             <constraint firstItem="Fcm-5W-s9Q" firstAttribute="centerX" secondItem="nge-X9-Y9d" secondAttribute="centerX" id="GXt-as-QO1"/>
                             <constraint firstItem="Fcm-5W-s9Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="x7b-PV-5wb" secondAttribute="leading" constant="16" id="LBg-aN-ta3"/>
-                            <constraint firstItem="gCF-0d-5UN" firstAttribute="bottom" secondItem="x7b-PV-5wb" secondAttribute="bottom" id="dPP-jw-Y0X"/>
+                            <constraint firstItem="x7b-PV-5wb" firstAttribute="bottom" secondItem="YgM-cX-oaa" secondAttribute="bottom" constant="10" id="STy-04-uFE"/>
+                            <constraint firstItem="pZU-tC-6ZR" firstAttribute="leading" secondItem="x7b-PV-5wb" secondAttribute="leading" constant="16" id="Vvt-s7-eSJ"/>
+                            <constraint firstItem="x7b-PV-5wb" firstAttribute="trailing" secondItem="pZU-tC-6ZR" secondAttribute="trailing" constant="16" id="Y9c-QV-M9K"/>
+                            <constraint firstItem="pZU-tC-6ZR" firstAttribute="top" secondItem="gCF-0d-5UN" secondAttribute="bottom" constant="15" id="bRJ-2z-azR"/>
+                            <constraint firstItem="YgM-cX-oaa" firstAttribute="leading" secondItem="x7b-PV-5wb" secondAttribute="leading" constant="16" id="nZx-xy-Eq4"/>
+                            <constraint firstItem="x7b-PV-5wb" firstAttribute="trailing" secondItem="YgM-cX-oaa" secondAttribute="trailing" constant="16" id="uMH-fe-8Rd"/>
+                            <constraint firstItem="YgM-cX-oaa" firstAttribute="top" secondItem="pZU-tC-6ZR" secondAttribute="bottom" constant="15" id="wiu-SA-PdR"/>
                             <constraint firstItem="Fcm-5W-s9Q" firstAttribute="centerY" secondItem="nge-X9-Y9d" secondAttribute="centerY" id="y5e-Gr-L1j"/>
                         </constraints>
                     </view>
@@ -1019,6 +1045,7 @@
                     <connections>
                         <outlet property="bagTableView" destination="gCF-0d-5UN" id="kb5-Kv-OJ8"/>
                         <outlet property="entityBagLabel" destination="Fcm-5W-s9Q" id="Bp8-Rx-VgZ"/>
+                        <outlet property="totalPriceLabel" destination="pZU-tC-6ZR" id="rzX-Ww-N8C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Go2-zH-oX2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1048,7 +1075,9 @@
         <scene sceneID="uNN-Ak-BIy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jJ7-8p-ufB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="bag.fill" catalog="system" id="nVY-8Q-Jqn"/>
+                    <tabBarItem key="tabBarItem" title="" image="bag.fill" catalog="system" id="nVY-8Q-Jqn">
+                        <color key="badgeColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bF2-pm-ipT">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
