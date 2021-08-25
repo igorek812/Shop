@@ -11,7 +11,7 @@ final class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSourc
     
     var assortment: [ProductModel] = []
     
-    var didSelect: ((ProductModel) -> Void)?
+    var didSelect: ((ProductModel, IndexPath) -> Void)?
     
     func set(assortment: [ProductModel]) {
         self.assortment = assortment
@@ -33,13 +33,13 @@ final class AssortmentCollectionViewManager: NSObject, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        didSelect?(assortment[indexPath.row])
+        didSelect?(assortment[indexPath.row], indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let height: CGFloat = collectionView.frame.height / 2
-        let width = collectionView.frame.width / 2 - 10
+        let width = collectionView.frame.width / 2 - 15
         
         return CGSize(width: width, height: height)
     }

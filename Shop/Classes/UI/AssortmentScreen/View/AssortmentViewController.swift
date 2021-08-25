@@ -7,17 +7,20 @@
 
 import UIKit
 
+
+
 class AssortmentViewController: UIViewController {
-    
-    var didFavourite: ((UIImage) -> Void)?
-    
-    @IBOutlet weak var assortmentCollectionView: UICollectionView!
     
     public var category: AssortmentCategory?
     
+    var productVC = ProduitViewController()
     private var assortmentCategory: [ProductModel] = []
     private let assortimentService = AssortimentService()
     private var assortmentManager: AssortmentCollectionViewManager?
+    
+    @IBOutlet weak var assortmentCollectionView: UICollectionView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +30,6 @@ class AssortmentViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
     }
     
 }
@@ -51,10 +53,13 @@ private extension AssortmentViewController {
         assortmentManager?.set(assortment: assortmentCategory)
         assortmentCollectionView.reloadData()
         
-        assortmentManager?.didSelect = { cell in
+        assortmentManager?.didSelect = { cell, indexPath in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             guard let produitViewController = storyboard.instantiateViewController(identifier: "ProductVC") as? ProduitViewController else { return }
             produitViewController.product = cell
+            produitViewController.updateCell = {
+                self.assortmentCollectionView.reloadItems(at: [indexPath])
+            }
             self.show(produitViewController, sender: nil)
         }
     }

@@ -25,7 +25,6 @@ final class SizeCollectionViewManager: NSObject, UICollectionViewDataSource, UIC
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCell", for: indexPath) as? SizeCollectionViewCell {
             
             cell.configureCell(cellModel: sizeProduct[indexPath.row])
-            
             return cell
         }
         
@@ -34,8 +33,8 @@ final class SizeCollectionViewManager: NSObject, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = collectionView.frame.width / 4
-        let height = collectionView.frame.height
+        let width = collectionView.frame.width / 2 - 10
+        let height: CGFloat = 35
         
         return CGSize(width: width, height: height)
     }
@@ -58,5 +57,5 @@ final class SizeCollectionViewManager: NSObject, UICollectionViewDataSource, UIC
             cell.layer.borderColor = UIColor.lightGray.cgColor
         }
     }
-    
+
 }

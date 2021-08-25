@@ -12,7 +12,7 @@ final class BagTableViewManager: NSObject, UITableViewDataSource, UITableViewDel
     var productInBag: [BagModel] = []
     
     var updateCellBy: ((_ indexPath: IndexPath) -> Void)?
-    
+    var updateBadge: (([BagModel]) -> Void)?
     var updateTotalPrice: (([BagModel], _ indexPath: IndexPath) -> Void)?
     
     func set(productInBag: [BagModel]) {
@@ -60,6 +60,7 @@ final class BagTableViewManager: NSObject, UITableViewDataSource, UITableViewDel
         if editingStyle == UITableViewCell.EditingStyle.delete {
             BacketData.shared.removeProductInBag(product: productInBag[indexPath.row])
             productInBag.remove(at: indexPath.row)
+            updateBadge?(productInBag)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()

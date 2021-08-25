@@ -11,6 +11,8 @@ class ProduitViewController: UIViewController {
     
     var animator: Animator?
     
+    var updateCell: (() -> Void)?
+    
     var productCollectionViewManager: ProductCollectionViewManager?
     var sizeCollectionViewManager: SizeCollectionViewManager?
     var colorCollectionViewManager: ColorCollectionViewManager?
@@ -34,6 +36,7 @@ class ProduitViewController: UIViewController {
     @IBOutlet weak var bagButton: UIButton!
     @IBOutlet weak var favouriteButton: UIButton!
     @IBOutlet weak var colorNameLabel: UILabel!
+    @IBOutlet weak var heightSizeCollectionViewConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +48,10 @@ class ProduitViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         checkFavouriteButton()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        heightSizeCollectionViewConstraint.constant = sizeCollectionView.contentSize.height
     }
     
     @IBAction func bagButtonTapped(_ sender: Any) {
@@ -80,6 +87,7 @@ class ProduitViewController: UIViewController {
         else {
             favouriteButton.setImage(starFill, for: .normal)
             BacketData.shared.addProductInFavourite(product: product)
+            updateCell?()
         }
     }
 

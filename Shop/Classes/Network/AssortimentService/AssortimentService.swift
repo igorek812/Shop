@@ -148,11 +148,6 @@ final class AssortimentService {
     ]
     
     func getItemsBy(category: AssortmentCategory) -> [ProductModel] {
-        for i in items {
-            if i.category.contains(.new) {
-                
-            }
-        }
-        return items.filter { $0.category[0] == category }
+        return items.filter { $0.category.contains(category) }
     }
 }

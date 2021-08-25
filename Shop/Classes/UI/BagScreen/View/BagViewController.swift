@@ -43,6 +43,13 @@ class BagViewController: UIViewController {
                 }
                 
             }
+            bagTableViewManager.updateBadge = { [weak self] productInBag in
+                if productInBag.count == 0 {
+                    self?.tabBarController?.tabBar.items?[2].badgeValue = .none
+                } else {
+                    self?.tabBarController?.tabBar.updateBagBadge(badge: "\(productInBag.count)")
+                }
+            }
             bagTableView.reloadData()
         }
         else {

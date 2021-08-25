@@ -35,6 +35,7 @@ class AssortmentCollectionViewCell: UICollectionViewCell {
         itemImage.image = assortmentCell.image[0].image
         categoryLabel.text = assortmentCell.category[0].rawValue
         nameLabel.text = assortmentCell.name
+        nameLabel.sizeToFit()
         priceLabel.text = "\(assortmentCell.price) руб."
         product = assortmentCell
         checkFavouriteButton()
